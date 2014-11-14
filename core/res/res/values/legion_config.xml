@@ -64,4 +64,10 @@
     <string name="config_SmartChargingSupspendValue" translatable="false">0</string>
     <string name="config_SmartChargingResumeValue" translatable="false">1</string>
     <bool name="config_hasInternalAudioRecordingSupport">true</bool>
+
+    <integer name="config_longPressOnHomeBehaviorHwKeys">3</integer>
+    <integer name="config_doubleTapOnHomeBehaviorHwKeys">0</integer>
+    <integer name="config_longPressOnMenuBehaviorHwKeys">2</integer>
+    <integer name="config_longPressOnAppSwitchBehaviorHwKeys">8</integer>
+    <integer name="config_longPressOnAssistBehaviorHwKeys">4</integer>
 </resources>
