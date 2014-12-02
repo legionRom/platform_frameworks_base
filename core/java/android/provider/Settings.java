@@ -9580,6 +9580,14 @@ public final class Settings {
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         private static final Validator ADVANCED_REBOOT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+	/**
+         * Whether user is allowed to pull down quick settings on secure keyguard.
+         * @hide
+         */
+        public static final String STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD =
+                "status_bar_locked_on_secure_keyguard";
+
         /**
          * This are the settings to be backed up.
          *
