@@ -25,4 +25,12 @@
     <!-- Recognizing fingerprint animation -->
     <dimen name="fod_animation_size">280dp</dimen>
     <dimen name="fod_animation_offset">0dp</dimen>
+
+    <!-- Sets a custom extra padding for the QS icons and statusbar date -->
+    <dimen name="qs_items_padding">8dp</dimen>
+
+    <!-- the padding on the start and the end of the statusbar -->
+    <dimen name="status_bar_extra_padding">0dp</dimen>
+
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
 </resources>
