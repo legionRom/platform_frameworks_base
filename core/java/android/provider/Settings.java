@@ -5609,6 +5609,26 @@ public final class Settings {
         public static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
 
         /**
+         * Transparent power menu and dialogs
+         * @hide
+         */
+        public static final String TRANSPARENT_POWER_MENU = "transparent_power_menu";
+
+        /** @hide */
+        private static final Validator TRANSPARENT_POWER_MENU_VALIDATOR =
+               new SettingsValidators.InclusiveIntegerRangeValidator(0, 100);
+
+        /**
+         * Dim amount around power/reboot menu dialogs
+         * @hide
+         */
+        public static final String TRANSPARENT_POWER_DIALOG_DIM = "transparent_power_dialog_dim";
+
+        /** @hide */
+        private static final Validator TRANSPARENT_POWER_DIALOG_DIM_VALIDATOR =
+               new SettingsValidators.InclusiveIntegerRangeValidator(0, 100);
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5722,6 +5742,8 @@ public final class Settings {
             QS_PANEL_BG_USE_ACCENT,
             QS_PANEL_BG_USE_NEW_TINT,
             STATUS_BAR_CUSTOM_HEADER_HEIGHT,
+            TRANSPARENT_POWER_MENU,
+            TRANSPARENT_POWER_DIALOG_DIM,
         };
 
         /**
@@ -5903,6 +5925,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
 	    PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_HIDEARROW);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_FONT_SIZE);
+            PRIVATE_SETTINGS.add(TRANSPARENT_POWER_MENU);
+            PRIVATE_SETTINGS.add(TRANSPARENT_POWER_DIALOG_DIM);
         }
 
         /**
@@ -6054,6 +6078,8 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_ACCENT, QS_PANEL_BG_USE_ACCENT_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER_HEIGHT, STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR);
+            VALIDATORS.put(TRANSPARENT_POWER_MENU,TRANSPARENT_POWER_MENU_VALIDATOR);
+            VALIDATORS.put(TRANSPARENT_POWER_DIALOG_DIM,TRANSPARENT_POWER_DIALOG_DIM_VALIDATOR);
         }
 
         /**
