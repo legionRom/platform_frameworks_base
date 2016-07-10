@@ -42,4 +42,6 @@
     <!-- Name of that alternative key handler class -->
     <string name="config_alternativeDeviceKeyHandlerClass" translatable="false"></string>
 
+    <!-- Whether device has dash charging support --> 
+    <bool name="config_hasDashCharger">false</bool>
 </resources>
