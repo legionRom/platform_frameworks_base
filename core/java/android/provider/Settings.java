@@ -5771,6 +5771,16 @@ public final class Settings {
         private static final Validator BATTERY_LIGHT_REALLYFULL_COLOR_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+	/**
+         * Enable\Disable Bluetooth Battery bar
+         * @hide
+         */
+        public static final String BLUETOOTH_SHOW_BATTERY = "bluetooth_show_battery";
+
+        /** @hide */
+        private static final Validator BLUETOOTH_SHOW_BATTERY_VALIDATOR =
+              BOOLEAN_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5894,6 +5904,7 @@ public final class Settings {
             BATTERY_LIGHT_MEDIUM_COLOR,
             BATTERY_LIGHT_FULL_COLOR,
             BATTERY_LIGHT_REALLYFULL_COLOR,
+            BLUETOOTH_SHOW_BATTERY,
         };
 
         /**
@@ -6085,6 +6096,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_MEDIUM_COLOR);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_FULL_COLOR);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
+            PRIVATE_SETTINGS.add(BLUETOOTH_SHOW_BATTERY);
         }
 
         /**
@@ -6245,6 +6257,7 @@ public final class Settings {
             VALIDATORS.put(BATTERY_LIGHT_MEDIUM_COLOR, BATTERY_LIGHT_MEDIUM_COLOR_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_FULL_COLOR, BATTERY_LIGHT_FULL_COLOR_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_REALLYFULL_COLOR, BATTERY_LIGHT_REALLYFULL_COLOR_VALIDATOR);
+            VALIDATORS.put(BLUETOOTH_SHOW_BATTERY,BLUETOOTH_SHOW_BATTERY_VALIDATOR);
         }
 
         /**
