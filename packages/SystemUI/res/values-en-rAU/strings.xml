@@ -325,7 +325,7 @@
     <string name="quick_settings_location_off_label" msgid="7923929131443915919">"Location Off"</string>
     <string name="quick_settings_media_device_label" msgid="8034019242363789941">"Media device"</string>
     <string name="quick_settings_rssi_label" msgid="3397615415140356701">"RSSI"</string>
-    <string name="quick_settings_rssi_emergency_only" msgid="7499207215265078598">"Emergency Calls Only"</string>
+    <string name="quick_settings_rssi_emergency_only" msgid="7499207215265078598">"Emergency calls Only"</string>
     <string name="quick_settings_settings_label" msgid="2214639529565474534">"Settings"</string>
     <string name="quick_settings_time_label" msgid="3352680970557509303">"Time"</string>
     <string name="quick_settings_user_label" msgid="1253515509432672496">"Me"</string>
@@ -358,6 +358,81 @@
     <string name="quick_settings_hotspot_secondary_label_transient" msgid="7585604088079160564">"Turning on…"</string>
     <string name="quick_settings_hotspot_secondary_label_data_saver_enabled" msgid="1280433136266439372">"Data Saver is on"</string>
     <plurals name="quick_settings_hotspot_secondary_label_num_devices" formatted="false" msgid="3142308865165871976">
+
+<!--
+    <string name="notification_summary_message_format" msgid="715071952312553396">"<xliff:g id="CONTACT_NAME">%1$s</xliff:g>: <xliff:g id="MESSAGE_CONTENT">%2$s</xliff:g>"</string>
+    <string name="status_bar_notification_inspect_item_title" msgid="5668348142410115323">"Notification settings"</string>
+    <string name="status_bar_notification_app_settings_title" msgid="5525260160341558869">"<xliff:g id="APP_NAME">%s</xliff:g> settings"</string>
+    <string name="accessibility_rotation_lock_off" msgid="4062780228931590069">"Screen will rotate automatically."</string>
+    <string name="accessibility_rotation_lock_on_landscape" msgid="6731197337665366273">"Screen is locked in landscape orientation."</string>
+    <string name="accessibility_rotation_lock_on_portrait" msgid="5809367521644012115">"Screen is locked in portrait orientation."</string>
+    <string name="accessibility_rotation_lock_off_changed" msgid="8134601071026305153">"Screen will now rotate automatically."</string>
+    <string name="accessibility_rotation_lock_on_landscape_changed" msgid="3135965553707519743">"Screen is now locked in landscape orientation."</string>
+    <string name="accessibility_rotation_lock_on_portrait_changed" msgid="8922481981834012126">"Screen is now locked in portrait orientation."</string>
+    <string name="dessert_case" msgid="1295161776223959221">"Dessert Case"</string>
+    <string name="start_dreams" msgid="5640361424498338327">"Screen saver"</string>
+    <string name="ethernet_label" msgid="7967563676324087464">"Ethernet"</string>
+    <string name="quick_settings_header_onboarding_text" msgid="8030309023792936283">"Touch &amp; hold icons for more options"</string>
+    <string name="quick_settings_dnd_label" msgid="7112342227663678739">"Do Not Disturb"</string>
+    <string name="quick_settings_dnd_priority_label" msgid="483232950670692036">"Priority only"</string>
+    <string name="quick_settings_dnd_alarms_label" msgid="2559229444312445858">"Alarms only"</string>
+    <string name="quick_settings_dnd_none_label" msgid="5025477807123029478">"Total silence"</string>
+    <string name="quick_settings_bluetooth_label" msgid="6304190285170721401">"Bluetooth"</string>
+    <string name="quick_settings_bluetooth_multiple_devices_label" msgid="3912245565613684735">"Bluetooth (<xliff:g id="NUMBER">%d</xliff:g> Devices)"</string>
+    <string name="quick_settings_bluetooth_off_label" msgid="8159652146149219937">"Bluetooth Off"</string>
+    <string name="quick_settings_bluetooth_detail_empty_text" msgid="4910015762433302860">"No paired devices available"</string>
+    <string name="quick_settings_bluetooth_secondary_label_battery_level" msgid="7106697106764717416">"<xliff:g id="BATTERY_LEVEL_AS_PERCENTAGE">%s</xliff:g> battery"</string>
+    <string name="quick_settings_bluetooth_secondary_label_audio" msgid="5673845963301132071">"Audio"</string>
+    <string name="quick_settings_bluetooth_secondary_label_headset" msgid="1880572731276240588">"Headset"</string>
+    <string name="quick_settings_bluetooth_secondary_label_input" msgid="2173322305072945905">"Input"</string>
+    <string name="quick_settings_bluetooth_secondary_label_hearing_aids" msgid="4930931771490695395">"Hearing Aids"</string>
+    <string name="quick_settings_bluetooth_secondary_label_transient" msgid="4551281899312150640">"Turning on…"</string>
+    <string name="quick_settings_brightness_label" msgid="6968372297018755815">"Brightness"</string>
+    <string name="quick_settings_rotation_unlocked_label" msgid="7305323031808150099">"Auto-rotate"</string>
+    <string name="accessibility_quick_settings_rotation" msgid="4231661040698488779">"Auto-rotate screen"</string>
+    <string name="accessibility_quick_settings_rotation_value" msgid="8187398200140760213">"<xliff:g id="ID_1">%s</xliff:g> mode"</string>
+    <string name="quick_settings_rotation_locked_label" msgid="6359205706154282377">"Rotation locked"</string>
+    <string name="quick_settings_rotation_locked_portrait_label" msgid="5102691921442135053">"Portrait"</string>
+    <string name="quick_settings_rotation_locked_landscape_label" msgid="8553157770061178719">"Landscape"</string>
+    <string name="quick_settings_ime_label" msgid="7073463064369468429">"Input Method"</string>
+    <string name="quick_settings_location_label" msgid="5011327048748762257">"Location"</string>
+    <string name="quick_settings_location_off_label" msgid="7464544086507331459">"Location Off"</string>
+    <string name="quick_settings_media_device_label" msgid="1302906836372603762">"Media device"</string>
+    <string name="quick_settings_rssi_label" msgid="7725671335550695589">"RSSI"</string>
+    <string name="quick_settings_rssi_emergency_only" msgid="2713774041672886750">"Emergency calls only"</string>
+    <string name="quick_settings_settings_label" msgid="5326556592578065401">"Settings"</string>
+    <string name="quick_settings_time_label" msgid="4635969182239736408">"Time"</string>
+    <string name="quick_settings_user_label" msgid="5238995632130897840">"Me"</string>
+    <string name="quick_settings_user_title" msgid="4467690427642392403">"User"</string>
+    <string name="quick_settings_user_new_user" msgid="9030521362023479778">"New user"</string>
+    <string name="quick_settings_wifi_label" msgid="9135344704899546041">"Wi-Fi"</string>
+    <string name="quick_settings_wifi_not_connected" msgid="7171904845345573431">"Not Connected"</string>
+    <string name="quick_settings_wifi_no_network" msgid="2221993077220856376">"No Network"</string>
+    <string name="quick_settings_wifi_off_label" msgid="7558778100843885864">"Wi-Fi Off"</string>
+    <string name="quick_settings_wifi_on_label" msgid="7607810331387031235">"Wi-Fi On"</string>
+    <string name="quick_settings_wifi_detail_empty_text" msgid="269990350383909226">"No Wi-Fi networks available"</string>
+    <string name="quick_settings_wifi_secondary_label_transient" msgid="7748206246119760554">"Turning on…"</string>
+    <string name="quick_settings_cast_title" msgid="6954684227605751758">"Screen Cast"</string>
+    <string name="quick_settings_casting" msgid="6601710681033353316">"Casting"</string>
+    <string name="quick_settings_cast_device_default_name" msgid="5367253104742382945">"Unnamed device"</string>
+    <string name="quick_settings_cast_device_default_description" msgid="2484573682378634413">"Ready to cast"</string>
+    <string name="quick_settings_cast_detail_empty_text" msgid="311785821261640623">"No devices available"</string>
+    <string name="quick_settings_cast_no_wifi" msgid="2696477881905521882">"Wi‑Fi not connected"</string>
+    <string name="quick_settings_brightness_dialog_title" msgid="8599674057673605368">"Brightness"</string>
+    <string name="quick_settings_brightness_dialog_auto_brightness_label" msgid="5064982743784071218">"AUTO"</string>
+    <string name="quick_settings_inversion_label" msgid="8790919884718619648">"Invert colours"</string>
+    <string name="quick_settings_color_space_label" msgid="853443689745584770">"Colour correction mode"</string>
+    <string name="quick_settings_more_settings" msgid="326112621462813682">"More settings"</string>
+    <string name="quick_settings_done" msgid="3402999958839153376">"Done"</string>
+    <string name="quick_settings_connected" msgid="1722253542984847487">"Connected"</string>
+    <string name="quick_settings_connected_battery_level" msgid="4136051440381328892">"Connected, battery <xliff:g id="BATTERY_LEVEL_AS_PERCENTAGE">%1$s</xliff:g>"</string>
+    <string name="quick_settings_connecting" msgid="47623027419264404">"Connecting..."</string>
+    <string name="quick_settings_tethering_label" msgid="7153452060448575549">"Tethering"</string>
+    <string name="quick_settings_hotspot_label" msgid="6046917934974004879">"Hotspot"</string>
+    <string name="quick_settings_hotspot_secondary_label_transient" msgid="8010579363691405477">"Turning on…"</string>
+    <string name="quick_settings_hotspot_secondary_label_data_saver_enabled" msgid="5672131949987422420">"Data Saver is on"</string>
+    <plurals name="quick_settings_hotspot_secondary_label_num_devices" formatted="false" msgid="2324635800672199428">
+-->
       <item quantity="other">%d devices</item>
       <item quantity="one">%d device</item>
     </plurals>
