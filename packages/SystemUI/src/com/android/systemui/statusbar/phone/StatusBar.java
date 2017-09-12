@@ -3942,19 +3942,6 @@ public class StatusBar extends SystemUI implements DemoMode,
        }
     }
 
-    private void setScreenBrightnessMode() {
-        int mode = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.SCREEN_BRIGHTNESS_MODE,
-            Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL,
-            UserHandle.USER_CURRENT);
-        mAutomaticBrightness = mode != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
-
-        mBrightnessControl = Settings.System.getIntForUser(
-            mContext.getContentResolver(), Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0,
-            UserHandle.USER_CURRENT) == 1;
->>>>>>> 33b02bcfc22... base: Bring back Gaming mode [1/3]
-    }
-
     private void setHeadsUpStoplist() {
         if (mPresenter != null)
             mPresenter.setHeadsUpStoplist();
