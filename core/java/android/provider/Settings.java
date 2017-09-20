@@ -4727,6 +4727,16 @@ public final class Settings {
         private static final Validator AICP_LOCKSCREEN_WEATHER_STYLE_VALIDATOR =
 	        new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);;
 
+	/**
+         * Whether to display qs tile titles in the qs panel
+         * @hide
+         */
+        public static final String OMNI_QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
+
+        /** @hide */
+        private static final Validator OMNI_QS_TILE_TITLE_VISIBILITY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Whether to display the power menu reboot option on a secured lockscreen
          *
@@ -5008,6 +5018,7 @@ public final class Settings {
             LOCKSCREEN_BATTERY_INFO,
             HEADS_UP_STOPLIST_VALUES,
             HEADS_UP_BLACKLIST_VALUES,
+	    OMNI_QS_TILE_TITLE_VISIBILITY,
         };
 
         /**
@@ -5145,6 +5156,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
             PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
+	    PRIVATE_SETTINGS.add(OMNI_QS_TILE_TITLE_VISIBILITY);
         }
 
         /**
@@ -5256,6 +5268,7 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, LOCKSCREEN_BATTERY_INFO_VALIDATOR);
             VALIDATORS.put(HEADS_UP_STOPLIST_VALUES, HEADS_UP_STOPLIST_VALUES_VALIDATOR);
             VALIDATORS.put(HEADS_UP_BLACKLIST_VALUES, HEADS_UP_BLACKLIST_VALUES_VALIDATOR);
+	    VALIDATORS.put(OMNI_QS_TILE_TITLE_VISIBILITY, OMNI_QS_TILE_TITLE_VISIBILITY_VALIDATOR);
         }
 
         /**
