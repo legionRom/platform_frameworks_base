@@ -5292,6 +5292,13 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * Indicates whether ANBI (Accidental navigation button interaction) is enabled.
+         * @hide
+         */
+        public static final String ANBI_ENABLED_OPTION = "anbi_enabled_option";
+
+	private static final Validator ANBI_ENABLED_OPTION_VALIDATOR = BOOLEAN_VALIDATOR;
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5378,6 +5385,7 @@ public final class Settings {
             LESS_BORING_HEADS_UP,
             OMNI_BACK_GESTURE_HEIGHT,
             FORCE_SHOW_NAVBAR,
+	    ANBI_ENABLED_OPTION,
         };
 
         /**
@@ -5524,7 +5532,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
             PRIVATE_SETTINGS.add(OMNI_BACK_GESTURE_HEIGH; 
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
-             
+            PRIVATE_SETTINGS.add(ANBI_ENABLED_OPTION);
             PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION);
             PRIVATE_SETTINGS.add(KEY_MENU_ACTION);
@@ -5663,7 +5671,7 @@ public final class Settings {
             VALIDATORS.put(KEY_ASSIST_LONG_PRESS_ACTION, KEY_ASSIST_LONG_PRESS_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_ACTION, KEY_APP_SWITCH_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION, KEY_APP_SWITCH_LONG_PRESS_ACTION_VALIDATOR);
-             
+            VALIDATORS.put(ANBI_ENABLED_OPTION, ANBI_ENABLED_OPTION_VALIDATOR);
         }
 
         /**
