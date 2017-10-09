@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.beast;
+package com.android.internal.util.legion;
 
 import android.hardware.input.InputManager;
 import android.os.Looper;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.view.InputDevice;
@@ -30,7 +32,19 @@ import android.os.SystemClock;
 
 import com.android.internal.statusbar.IStatusBarService;
 
-public class BeastUtils {
+public class LegionUtils {
+	public static void switchScreenOff(Context ctx) {
+	PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
+	if (pm!= null && pm.isScreenOn()) {
+	pm.goToSleep(SystemClock.uptimeMillis());
+	}
+    }
+public static void switchScreenOn(Context context) {
+  PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+if (pm == null) return;
+pm.wakeUp(SystemClock.uptimeMillis(), "com.android.systemui:CAMERA_GESTURE_PREVENT_LOCK");
+    }
+
     public static void toggleCameraFlash() {
         FireActions.toggleCameraFlash();
     }

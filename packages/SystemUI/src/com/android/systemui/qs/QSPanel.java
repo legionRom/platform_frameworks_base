@@ -849,10 +849,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         }
     }
 
-    public boolean isBrightnessViewBottom() {
-        return mBrightnessBottom;
-    }
-
     private void configureTile(QSTile t, QSTileView v) {
         if (mTileLayout != null) {
             v.setHideLabel(!mTileLayout.isShowTitles());

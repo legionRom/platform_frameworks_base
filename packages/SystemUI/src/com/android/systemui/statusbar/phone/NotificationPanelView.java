@@ -2117,7 +2117,6 @@ public class NotificationPanelView extends PanelView implements
      */
     private boolean shouldQuickSettingsIntercept(float x, float y, float yDiff) {
         if (!mQsExpansionEnabled || mCollapsedOnDown || isQSEventBlocked()) {
-                || (mKeyguardShowing && mKeyguardBypassController.getBypassEnabled())) {
             return false;
         }
         View header = mKeyguardShowing || mQs == null ? mKeyguardStatusBar : mQs.getHeader();
