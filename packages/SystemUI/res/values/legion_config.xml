@@ -9,7 +9,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-    aod,dataswitch,caffeine
+    aod,dataswitch,caffeine,reboot
     </string>
 
     <integer name="hardware_ui_align">53</integer>
