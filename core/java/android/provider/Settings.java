@@ -4750,6 +4750,12 @@ public final class Settings {
          */
         public static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
 
+	 /**
+         * Whether the haptic feedback on action instead of touch
+         * @hide
+         */
+        public static final String HAPTIC_ON_ACTION_KEY = "haptic_on_action_key";
+
         /**
          * Clock font style
          * @hide
