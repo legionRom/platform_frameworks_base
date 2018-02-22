@@ -38,6 +38,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
@@ -788,7 +789,7 @@ public class PhoneStatusBarPolicy
                 case BluetoothDevice.ACTION_BATTERY_LEVEL_CHANGED:
                     updateBluetooth();
                     break;
-           }
+            }
         }
     };
 
