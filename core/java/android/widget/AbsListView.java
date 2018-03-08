@@ -36,6 +36,7 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.StrictMode;
+import android.os.SystemProperties;
 import android.os.Trace;
 import android.text.Editable;
 import android.text.InputType;

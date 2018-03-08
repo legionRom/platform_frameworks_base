@@ -99,11 +99,7 @@ public class TileQueryHelper {
                 possibleTiles.add(spec);
             }
         }
-<<<<<<< HEAD
-        if (Build.IS_DEBUGGABLE && !current.contains(GarbageMonitor.MemoryTile.TILE_SPEC)) {
-=======
-        /*if (Build.IS_ENG && !current.contains(GarbageMonitor.MemoryTile.TILE_SPEC)) {
->>>>>>> a48b3f9ad33... [DNM] IS_DEBUGGABLE -> IS_ENG
+        if (Build.IS_ENG && !current.contains(GarbageMonitor.MemoryTile.TILE_SPEC)) {
             possibleTiles.add(GarbageMonitor.MemoryTile.TILE_SPEC);
         }
 
