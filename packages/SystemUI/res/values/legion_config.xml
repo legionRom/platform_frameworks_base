@@ -12,4 +12,5 @@
     aod,dataswitch,caffeine
     </string>
 
+    <integer name="hardware_ui_align">53</integer>
 </resources>
