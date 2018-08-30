@@ -4737,6 +4737,15 @@ public final class Settings {
         private static final Validator OMNI_QS_TILE_TITLE_VISIBILITY_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+	/**
+         * @hide
+         */
+        public static final String OMNI_QS_QUICKBAR_COLUMNS = "qs_quickbar_columns";
+
+        /** @hide */
+        private static final Validator OMNI_QS_QUICKBAR_COLUMNS_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Whether to display the power menu reboot option on a secured lockscreen
          *
@@ -5019,6 +5028,7 @@ public final class Settings {
             HEADS_UP_STOPLIST_VALUES,
             HEADS_UP_BLACKLIST_VALUES,
 	    OMNI_QS_TILE_TITLE_VISIBILITY,
+            OMNI_QS_QUICKBAR_COLUMNS,
         };
 
         /**
@@ -5157,6 +5167,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
 	    PRIVATE_SETTINGS.add(OMNI_QS_TILE_TITLE_VISIBILITY);
+            PRIVATE_SETTINGS.add(OMNI_QS_QUICKBAR_COLUMNS);
         }
 
         /**
@@ -5269,6 +5280,7 @@ public final class Settings {
             VALIDATORS.put(HEADS_UP_STOPLIST_VALUES, HEADS_UP_STOPLIST_VALUES_VALIDATOR);
             VALIDATORS.put(HEADS_UP_BLACKLIST_VALUES, HEADS_UP_BLACKLIST_VALUES_VALIDATOR);
 	    VALIDATORS.put(OMNI_QS_TILE_TITLE_VISIBILITY, OMNI_QS_TILE_TITLE_VISIBILITY_VALIDATOR);
+            VALIDATORS.put(OMNI_QS_QUICKBAR_COLUMNS, OMNI_QS_QUICKBAR_COLUMNS_VALIDATOR);
         }
 
         /**
