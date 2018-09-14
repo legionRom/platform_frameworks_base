@@ -1002,6 +1002,13 @@ public class Build {
     /** A string that uniquely identifies this build.  Do not attempt to parse this value. */
     public static final String FINGERPRINT = deriveFingerprint();
 
+    /** @hide */
+    public static final String PROP_LEGION_FINGERPRINT = "com.legion.fingerprint";
+
+    /** @hide */
+    public static final String LEGION_FINGERPRINT = SystemProperties.get(PROP_LEGION_FINGERPRINT,
+            deriveFingerprint());
+
     /**
      * Some devices split the fingerprint components between multiple
      * partitions, so we might derive the fingerprint at runtime.
