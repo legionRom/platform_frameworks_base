@@ -117,6 +117,9 @@ public class KeyguardStatusView extends GridLayout implements
                 refreshOwnerInfoSize();
                 refreshOwnerInfoFont();
 		updateSettings();
+                mClockView.updateClockColor();
+                updateClockDateColor();
+                updateOwnerInfoColor();
             }
         }
 
@@ -142,6 +145,9 @@ public class KeyguardStatusView extends GridLayout implements
             refreshOwnerInfoSize();
             refreshOwnerInfoFont();
             updateDateStyles();
+            mClockView.updateClockColor();
+            updateClockDateColor();
+            updateOwnerInfoColor();
 	}
 
         @Override
@@ -229,6 +235,9 @@ public class KeyguardStatusView extends GridLayout implements
         refreshOwnerInfoSize();
         refreshOwnerInfoFont();
         updateDateStyles();
+	mClockView.updateClockColor();
+	updateClockDateColor();
+	updateOwnerInfoColor();
 
         mTextColor = mClockView.getCurrentTextColor();
 
@@ -340,6 +349,26 @@ public class KeyguardStatusView extends GridLayout implements
     private int getOwnerInfoSize() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.LOCKOWNER_FONT_SIZE, 18);
+    }
+
+    private void updateClockDateColor() {
+        ContentResolver resolver = getContext().getContentResolver();
+        int color = Settings.System.getInt(resolver,
+                Settings.System.LOCKSCREEN_CLOCK_DATE_COLOR, 0xFFFFFFFF);
+
+        if (mKeyguardSlice != null) {
+            mKeyguardSlice.setTextColor(color);
+       	}
+    }
+
+    private void updateOwnerInfoColor() {
+        ContentResolver resolver = getContext().getContentResolver();
+        int color = Settings.System.getInt(resolver,
+                Settings.System.LOCKSCREEN_OWNER_INFO_COLOR, 0xFFFFFFFF);
+
+        if (mOwnerInfo != null) {
+            mOwnerInfo.setTextColor(color);
+        }
     }
 
     private void refreshFormat() {
@@ -505,7 +534,7 @@ public class KeyguardStatusView extends GridLayout implements
             }
         }
         mOwnerInfo.setText(info);
-        updateDark();
+	updateOwnerInfoColor();
     }
 
     @Override
@@ -904,8 +933,6 @@ public class KeyguardStatusView extends GridLayout implements
         }
 
         final int blendedTextColor = ColorUtils.blendARGB(mTextColor, Color.WHITE, mDarkAmount);
-        mKeyguardSlice.setDarkAmount(mDarkAmount);
-        mClockView.setTextColor(blendedTextColor);
     }
 
     private void layoutOwnerInfo() {
