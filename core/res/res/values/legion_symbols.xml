@@ -154,5 +154,6 @@
   <java-symbol type="string" name="config_bodyFontFamily" />
   <java-symbol type="string" name="config_bodyFontFamilyMedium" />
 
+  <java-symbol type="bool" name="config_needCustomFODView" />
 </resources>
 
