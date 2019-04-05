@@ -30,4 +30,8 @@
 
     <!-- CoverArt Accent -->
     <color name="coverart_accent">@*android:color/accent_device_default</color>
+
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
+
 </resources>
