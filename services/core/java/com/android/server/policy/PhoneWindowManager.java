@@ -659,8 +659,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_NOTIFY_USER_ACTIVITY = 26;
     private static final int MSG_RINGER_TOGGLE_CHORD = 27;
     private static final int MSG_MOVE_DISPLAY_TO_TOP = 28;
-	
-    private OPGesturesListener mOPGestures;
+
+    private SwipeToScreenshotListener mSwipeToScreenshot;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -1813,7 +1813,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         mHandler = new PolicyHandler();
-        mOPGestures = new OPGesturesListener(context, new OPGesturesListener.Callbacks() {
+        mSwipeToScreenshot = new SwipeToScreenshotListener(context, new SwipeToScreenshotListener.Callbacks() {
             @Override
             public void onSwipeThreeFinger() {
                 mHandler.post(mScreenshotRunnable);
@@ -1993,40 +1993,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 });
 
-        final Resources res = mContext.getResources();
-        final String[] deviceKeyHandlerLibs = res.getStringArray(
-                com.android.internal.R.array.config_deviceKeyHandlerLibs);
-        final String[] deviceKeyHandlerClasses = res.getStringArray(
-                com.android.internal.R.array.config_deviceKeyHandlerClasses);
-
-        for (int i = 0;
-                i < deviceKeyHandlerLibs.length && i < deviceKeyHandlerClasses.length; i++) {
-            try {
-                PathClassLoader loader = new PathClassLoader(
-                        deviceKeyHandlerLibs[i], getClass().getClassLoader());
-                Class<?> klass = loader.loadClass(deviceKeyHandlerClasses[i]);
-                Constructor<?> constructor = klass.getConstructor(Context.class);
-                mDeviceKeyHandlers.add((DeviceKeyHandler) constructor.newInstance(mContext));
-            } catch (Exception e) {
-                Slog.w(TAG, "Could not instantiate device key handler "
-                        + deviceKeyHandlerLibs[i] + " from class "
-                        + deviceKeyHandlerClasses[i], e);
-            }
-        }
-    }   
-    }
-	
+     }
      private void enableSwipeThreeFingerGesture(boolean enable){
         if (enable) {
             if (haveEnableGesture) return;
             haveEnableGesture = true;
-            mWindowManagerFuncs.registerPointerEventListener(mOPGestures, DEFAULT_DISPLAY);
+            mWindowManagerFuncs.registerPointerEventListener(mSwipeToScreenshot, DEFAULT_DISPLAY);
         } else {
             if (!haveEnableGesture) return;
             haveEnableGesture = false;
-            mWindowManagerFuncs.unregisterPointerEventListener(mOPGestures, DEFAULT_DISPLAY);
-   }
-}
+            mWindowManagerFuncs.unregisterPointerEventListener(mSwipeToScreenshot, DEFAULT_DISPLAY);
+        }
+    }
 
     /**
      * Read values from config.xml that may be overridden depending on
