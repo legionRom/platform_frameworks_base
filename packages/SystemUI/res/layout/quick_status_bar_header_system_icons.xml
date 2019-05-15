@@ -44,10 +44,11 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.5"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical|end" >
 
+<<<<<<< HEAD
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -68,6 +69,17 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical|end" >
+
+	<com.android.systemui.statusbar.policy.NetworkTraffic 
+             android:id="@+id/networkTraffic" 
+             android:paddingEnd="@dimen/status_bar_left_clock_end_padding" 
+             android:layout_width="wrap_content" 
+             android:layout_height="match_parent" 
+             android:layout_marginStart="2dp" 
+             android:layout_marginEnd="2dp"
+    	     android:singleLine="false" 
+             android:lineSpacingMultiplier="1.2"
+             systemui:showDark="false"/>
 
          <com.android.systemui.statusbar.info.DataUsageView
              android:id="@+id/data_sim_usage"

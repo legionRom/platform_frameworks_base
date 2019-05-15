@@ -33,9 +33,14 @@ import android.widget.TextView;
 import com.android.internal.util.colt.ColtUtils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.statusbar.StatusIconDisplayable;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
-import com.android.systemui.statusbar.StatusIconDisplayable;
+import android.view.View;
+import android.widget.TextView;
+
+import com.android.systemui.Dependency;
+import com.android.systemui.R;
 
 /*
 *
@@ -77,7 +82,6 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
     private int mVisibleState = -1;
     private boolean mTrafficVisible = false;
     private boolean mSystemIconVisible = true;
-
     private boolean mScreenOn = true;
 
     private Handler mTrafficHandler = new Handler() {
@@ -409,8 +413,7 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
     }
 
     private void updateVisibility() {
-        if (!ColtUtils.hasNotch(mContext) && mIsEnabled &&
-                mTrafficVisible && mSystemIconVisible) {
+        if (mIsEnabled && mTrafficVisible && mSystemIconVisible {
             setVisibility(View.VISIBLE);
         } else {
             setVisibility(View.GONE);
