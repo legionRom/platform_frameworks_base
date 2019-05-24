@@ -29,6 +29,7 @@ import android.os.UserHandle;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.Slog;
 import android.util.TypedValue;

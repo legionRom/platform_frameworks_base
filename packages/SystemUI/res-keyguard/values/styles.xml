@@ -77,6 +77,9 @@
         <item name="android:textSize">@dimen/widget_title_font_size</item>
         <item name="android:paddingBottom">@dimen/widget_vertical_padding_clock</item>
         <item name="android:ellipsize">none</item>
+
+        <item name="android:shadowColor">@color/keyguard_shadow_color</item>
+        <item name="android:shadowRadius">?attr/shadowRadius</item>
     </style>
     <style name="widget_small_bold">
         <item name="android:textStyle">bold</item>
@@ -84,6 +87,9 @@
         <item name="android:paddingBottom">@dimen/bottom_text_spacing_digital</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:ellipsize">none</item>
+
+        <item name="android:shadowColor">@color/keyguard_shadow_color</item>
+        <item name="android:shadowRadius">?attr/shadowRadius</item>
     </style>
 
     <style name="BouncerSecurityContainer">
@@ -116,6 +122,9 @@
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">2</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+
+        <item name="android:shadowColor">@color/keyguard_shadow_color</item>
+        <item name="android:shadowRadius">?attr/shadowRadius</item>
     </style>
 
     <style name="TextAppearance.Keyguard.Secondary">
@@ -129,6 +138,9 @@
         <item name="android:textSize">16sp</item>
         <item name="android:maxLines">1</item>
         <item name="android:textColor">?attr/wallpaperTextColor</item>
+
+        <item name="android:shadowColor">@color/keyguard_shadow_color</item>
+        <item name="android:shadowRadius">?attr/shadowRadius</item>
     </style>
 
 </resources>
