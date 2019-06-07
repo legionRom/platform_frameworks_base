@@ -44,9 +44,9 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
 	mLeftSide = statusBarView.findViewById(R.id.status_bar_left_side);
         mStatusIcons = statusBarView.findViewById(R.id.statusIcons);
         mBattery = statusBarView.findViewById(R.id.battery);
-        mClock = mView.findViewById(R.id.clock);
-        mCenterClock = mView.findViewById(R.id.center_clock);
-        mRightClock = mView.findViewById(R.id.right_clock);
+        mClock = statusBarView.findViewById(R.id.clock);
+        mCenterClock = statusBarView.findViewById(R.id.center_clock);
+        mRightClock = statusBarView.findViewById(R.id.right_clock);
         applyModeBackground(-1, getMode(), false /*animate*/);
         applyMode(getMode(), false /*animate*/);
     }
