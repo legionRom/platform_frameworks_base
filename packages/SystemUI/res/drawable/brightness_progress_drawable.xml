@@ -2,9 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@*android:id/background" android:gravity="center_vertical|fill_horizontal">
 <shape android:shape="rectangle">
-<size android:height="40dp" />
+<size android:height="35dp" />
 <solid android:color="#33000c29" />
-<corners android:bottomRightRadius="0dp" android:bottomLeftRadius="25dp" android:topLeftRadius="0dp" android:topRightRadius="25dp"/>
+<corners android:bottomRightRadius="25dp" android:bottomLeftRadius="25dp" android:topLeftRadius="25dp" android:topRightRadius="25dp"/>
 </shape></item>
 <item android:id="@*android:id/progress" android:gravity="center_vertical|fill_horizontal">
 <scale android:scaleWidth="100%"><shape android:shape="rectangle">
@@ -13,6 +13,6 @@
         android:startColor="@*android:color/gradient_start"
         android:endColor="@*android:color/gradient_end"
         android:angle="45" android:type="linear"/>
-<corners android:bottomRightRadius="0dp" android:bottomLeftRadius="25dp" android:topLeftRadius="0dp" android:topRightRadius="25dp"/>
+<corners android:bottomRightRadius="25dp" android:bottomLeftRadius="25dp" android:topLeftRadius="25dp" android:topRightRadius="25dp"/>
 
 </shape></scale></item></layer-list>
