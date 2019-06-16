@@ -10,8 +10,8 @@
 <scale android:scaleWidth="100%"><shape android:shape="rectangle">
 <size android:height="40dp" />
     <gradient
-        android:startColor="@color/gradient_start"
-        android:endColor="@color/gradient_end"
+        android:startColor="@*android:color/gradient_start"
+        android:endColor="@*android:color/gradient_end"
         android:angle="45" android:type="linear"/>
 <corners android:bottomRightRadius="0dp" android:bottomLeftRadius="25dp" android:topLeftRadius="0dp" android:topRightRadius="25dp"/>
 
