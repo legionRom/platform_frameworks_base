@@ -5271,7 +5271,11 @@ public final class Settings {
         public static final String AUTO_ANSWER_CALL_KEY = "auto_answer_call_key";
 
         /**
->>>>>>> 31fd4d3b273... Add Dialer's public strings
+         * @hide
+         */
+        public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
