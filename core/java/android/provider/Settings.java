@@ -5270,6 +5270,8 @@ public final class Settings {
          */
         public static final String AUTO_ANSWER_CALL_KEY = "auto_answer_call_key";
 
+        public static final String SMART_CHARGING_RESET_STATS = "smart_charging_reset_stats";
+
         /**
          * @hide
          */
