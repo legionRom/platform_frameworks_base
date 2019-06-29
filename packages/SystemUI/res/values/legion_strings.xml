@@ -144,4 +144,12 @@
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
 
+    <!-- Fnatic mode -->
+    <string name="gaming_mode_not_enabled">Fnatic mode is disabled in settings</string> 
+    <string name="quick_settings_gaming_mode_label">Fnatic mode</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] --> 
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Fnatic mode turned off.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Fnatic mode turned on.</string>
+
 </resources>
