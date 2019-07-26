@@ -75,11 +75,14 @@ public class NotificationInterruptionStateProvider {
     protected boolean mUseHeadsUp = false;
     private boolean mDisableNotificationAlerts;
 
+    private boolean mLessBoringHeadsUp;
+
     private boolean mSkipHeadsUp;
 
     @Inject
     public NotificationInterruptionStateProvider(Context context, NotificationFilter filter,
             StatusBarStateController stateController, BatteryController batteryController) {
+
         this(context,
                 (PowerManager) context.getSystemService(Context.POWER_SERVICE),
                 IDreamManager.Stub.asInterface(
@@ -222,7 +225,7 @@ public class NotificationInterruptionStateProvider {
 
         if (!mUseHeadsUp) {
             if (DEBUG_HEADS_UP) {
-                Log.d(TAG, "No heads up: no huns or gaming mode ");
+                Log.d(TAG, "No heads up: no huns ");
             }
             return false;
         }
@@ -357,6 +360,10 @@ public class NotificationInterruptionStateProvider {
         return true;
     }
 
+    public void setUseLessBoringHeadsUp(boolean lessBoring) {
+	mLessBoringHeadsUp = lessBoring;
+    }
+
     public void setGamingPeekMode(boolean skipHeadsUp) {
         mSkipHeadsUp = skipHeadsUp;
     }
@@ -384,10 +391,9 @@ public class NotificationInterruptionStateProvider {
     public boolean canAlertAwakeCommon(NotificationEntry entry) {
         StatusBarNotification sbn = entry.notification;
 
-        if (mPresenter.isDeviceInVrMode()) {
+        if (mPresenter.isDeviceInVrMode() || shouldSkipHeadsUp(sbn)) {
             if (DEBUG_HEADS_UP) {
-
-                Log.d(TAG, "No alerting: no huns or vr mode or gaming mode enabled");
+                Log.d(TAG, "No heads up: no huns or vr mode or less boring headsup or gaming mode is enabled");
             }
             return false;
         }

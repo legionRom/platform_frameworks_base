@@ -127,7 +127,7 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.statusbar.RegisterStatusBarResult;
-import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.legion.LegionUtils;
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.hwkeys.PackageMonitor;
@@ -743,6 +743,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else if (DEBUG) {
             Log.v(TAG, "start(): no wallpaper service ");
         }
+
+        mLegionSettingsObserver.observe();
+        mLegionSettingsObserver.update();
 
         mLegionSettingsObserver.observe();
         mLegionSettingsObserver.update();
@@ -3902,9 +3905,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     };
 
-    private NosSettingsObserver mNosSettingsObserver = new NosSettingsObserver(mHandler);
-    private class NosSettingsObserver extends ContentObserver {
-        NosSettingsObserver(Handler handler) {
+    private LegionSettingsObserver mLegionSettingsObserver = new LegionSettingsObserver(mHandler);
+    private class LegionSettingsObserver extends ContentObserver {
+        LegionSettingsObserver(Handler handler) {
             super(handler);
         }
          void observe() {
@@ -3922,6 +3925,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS),
                     false, this, UserHandle.USER_ALL);
+	    resolver.registerContentObserver(Settings.System.getUriFor(
+		    Settings.System.LESS_BORING_HEADS_UP),
+		    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.GAMING_MODE_ACTIVE),
                     false, this, UserHandle.USER_ALL);
@@ -3972,6 +3978,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.GAMING_MODE_HEADSUP_TOGGLE, 1,
                 UserHandle.USER_CURRENT) == 1;
         mNotificationInterruptionStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
+    }
+
+    private void setUseLessBoringHeadsUp() {
+        boolean lessBoringHeadsUp = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LESS_BORING_HEADS_UP, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mNotificationInterruptionStateProvider.setUseLessBoringHeadsUp(lessBoringHeadsUp);
     }
 
     public int getWakefulnessState() {
