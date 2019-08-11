@@ -742,7 +742,11 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mScreenshotHelper.takeScreenshot(1/*TAKE_SCREENSHOT_FULLSCREEN*/, true, true, mHandler);
+                    try {
+                        WindowManagerGlobal.getWindowManagerService().takeOPScreenshot(1);
+                    } catch (RemoteException e) {
+                        Log.e(TAG, "Error while trying to take screenshot.", e);
+                    }
                     MetricsLogger.action(mContext,
                             MetricsEvent.ACTION_SCREENSHOT_POWER_MENU);
                 }
@@ -767,7 +771,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mScreenshotHelper.takeScreenshot(2/*TAKE_SCREENSHOT_SELECTED_REGION*/, true, true, mHandler);
+                    mScreenshotHelper.takeScreenshot(2/*TAKE_SCREENSHOT_SELECTED_REGION*/, true, true, mHandler, null);
                     MetricsLogger.action(mContext,
                             MetricsEvent.ACTION_SCREENSHOT_POWER_MENU);
                 }
@@ -2066,7 +2070,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     .translationX(mGlobalActionsLayout.getAnimationOffsetX())
                     .translationY(mGlobalActionsLayout.getAnimationOffsetY())
                     .setDuration(DIALOG_DISMISS_DELAY)
-                    .withEndAction(this::completeDismiss)
+                    .withEndAction(super::dismiss)
                     .setInterpolator(new LogAccelerateInterpolator())
                     .setUpdateListener(animation -> {
                         int alpha = (int) ((1f - (Float) animation.getAnimatedValue())
