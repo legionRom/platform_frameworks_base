@@ -36,6 +36,9 @@
   <!-- Whether device has dash charging support --> 
   <java-symbol type="bool" name="config_hasDashCharger" />
 
+  <!-- Post reset runnable for all clients -->
+  <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
+
   <java-symbol type="array" name="config_blockPackagesSensorDrain" />
 
     <java-symbol type="drawable" name="ic_gaming_notif" />
