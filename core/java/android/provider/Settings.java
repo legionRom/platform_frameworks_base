@@ -5082,6 +5082,23 @@ public final class Settings {
          * Whether to automatically enable the gaming mode
          * if the launched app is a game
          * @hide
+	*/
+
+	/**
+         * Whether the Home button works during call
+         * @hide
+         */
+        public static final String ALLOW_INCALL_HOME = "allow_incall_home";
+
+        /** @hide */
+        private static final Validator ALLOW_INCALL_HOME_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
          */
         public static final String GAMING_MODE_DYNAMIC_STATE = "gaming_mode_dynamic_state";
 
@@ -5168,6 +5185,7 @@ public final class Settings {
             OMNI_QS_QUICKBAR_COLUMNS,
             DOUBLE_TAP_SLEEP_GESTURE,
             DOUBLE_TAP_SLEEP_LOCKSCREEN,
+            ALLOW_INCALL_HOME,
         };
 
         /**
@@ -5310,6 +5328,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_QS_QUICKBAR_COLUMNS);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
+            PRIVATE_SETTINGS.add(ALLOW_INCALL_HOME);
         }
 
         /**
@@ -5430,6 +5449,7 @@ public final class Settings {
                     DOUBLE_TAP_SLEEP_LOCKSCREEN_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES,
                     ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
+            VALIDATORS.put(ALLOW_INCALL_HOME, ALLOW_INCALL_HOME_VALIDATOR);
         }
 
         /**
