@@ -17,7 +17,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Purple accent color name application label. [CHAR LIMIT=50] -->
+    <!-- Gold accent color name application label. [CHAR LIMIT=50] -->
     <string name="accent_color_golden_shower" translatable="false">Golden Shower</string>
 </resources>
 
