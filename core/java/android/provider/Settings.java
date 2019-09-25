@@ -5078,6 +5078,13 @@ public final class Settings {
          */
         public static final String GAMING_MODE_MANUAL_BRIGHTNESS_TOGGLE = "gaming_mode_manual_brightness_toggle";
 
+        /** @hide */
+        public static final String OMNI_BACK_GESTURE_HEIGHT = "back_gesture_height";
+
+        /** @hide */
+        private static final Validator OMNI_BACK_GESTURE_HEIGHT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Whether to automatically enable the gaming mode
          * if the launched app is a game
@@ -5268,6 +5275,7 @@ public final class Settings {
             DOUBLE_TAP_SLEEP_LOCKSCREEN,
             ALLOW_INCALL_HOME,
             LESS_BORING_HEADS_UP,
+            OMNI_BACK_GESTURE_HEIGHT,
         };
 
         /**
@@ -5412,6 +5420,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(ALLOW_INCALL_HOME);
             PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
+            PRIVATE_SETTINGS.add(OMNI_BACK_GESTURE_HEIGHT);
         }
 
         /**
@@ -5534,6 +5543,7 @@ public final class Settings {
                     ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
             VALIDATORS.put(ALLOW_INCALL_HOME, ALLOW_INCALL_HOME_VALIDATOR);
             VALIDATORS.put(LESS_BORING_HEADS_UP, LESS_BORING_HEADS_UP_VALIDATOR);
+            VALIDATORS.put(OMNI_BACK_GESTURE_HEIGHT, OMNI_BACK_GESTURE_HEIGHT_VALIDATOR);
         }
 
         /**
