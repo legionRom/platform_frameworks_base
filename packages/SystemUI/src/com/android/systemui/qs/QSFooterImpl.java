@@ -364,7 +364,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
             MetricsLogger.action(mContext,
                     mExpanded ? MetricsProto.MetricsEvent.ACTION_QS_EXPANDED_SETTINGS_LAUNCH
                             : MetricsProto.MetricsEvent.ACTION_QS_COLLAPSED_SETTINGS_LAUNCH);
-            startSettingsActivity();
+                startSettingsActivity();
         }
     }
 
