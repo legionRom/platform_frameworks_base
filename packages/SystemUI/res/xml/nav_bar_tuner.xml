@@ -17,14 +17,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:sysui="http://schemas.android.com/apk/res-auto"
     android:title="@string/nav_bar">
-
-    <com.android.systemui.tuner.TunerSwitch
-        android:key="sysui_nav_bar_inverse"
-        android:title="@string/nav_bar_layout_inverse" />
-		    
+ 
     <ListPreference
         android:key="layout"
-        android:title="@string/nav_bar_layout"
+        android:title="@string/nav_bar_layout_inverse"
         android:summary="%s"
         android:persistent="false"
         android:entries="@array/nav_bar_layouts"
