@@ -52,10 +52,23 @@ public class LegionUtils {
             pm.goToSleep(SystemClock.uptimeMillis());
         }
     }
-public static void switchScreenOn(Context context) {
-  PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-if (pm == null) return;
-pm.wakeUp(SystemClock.uptimeMillis(), "com.android.systemui:CAMERA_GESTURE_PREVENT_LOCK");
+	public static void switchScreenOn(Context context) {
+	  PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+	if (pm == null) return;
+	pm.wakeUp(SystemClock.uptimeMillis(), "com.android.systemui:CAMERA_GESTURE_PREVENT_LOCK");
+	}
+
+    public static boolean isAvailableApp(String packageName, Context context) {
+       Context mContext = context;
+       final PackageManager pm = mContext.getPackageManager();
+       try {
+           pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+           int enabled = pm.getApplicationEnabledSetting(packageName);
+           return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
+               enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
+       } catch (NameNotFoundException e) {
+           return false;
+       }
     }
 
     public static void toggleCameraFlash() {
