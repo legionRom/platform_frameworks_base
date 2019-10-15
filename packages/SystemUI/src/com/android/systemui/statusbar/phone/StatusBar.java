@@ -3600,13 +3600,13 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         // Resource IDs for framework properties
-        int resourceIdRadius = res.getIdentifier("com.android.systemui:dimen/rounded_corner_radius", null, null);
-        int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null, null);
+        int resourceIdRadius = (int) mContext.getResources().getDimension(com.android.internal.R.dimen.rounded_corner_radius);
+        int resourceIdPadding = (int) mContext.getResources().getDimension(R.dimen.rounded_corner_content_padding);
+        int resourceIdSBPadding = (int) mContext.getResources().getDimension(R.dimen.status_bar_extra_padding);
 
         // Values on framework resources
         int cornerRadiusRes = (int) (res.getDimension(resourceIdRadius) / density);
         int contentPaddingRes = (int) (res.getDimension(resourceIdPadding) / density);
-        int resourceIdSBPadding = (int) mContext.getResources().getDimension(R.dimen.status_bar_extra_padding);
         int sbPaddingRes = (int) (resourceIdSBPadding / density);
 
         // Values in Settings DBs
