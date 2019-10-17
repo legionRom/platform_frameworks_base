@@ -334,6 +334,11 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         } else if (id ==  R.id.menu_item_columns_landscape_eight) {
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     Settings.System.OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE, 8, UserHandle.USER_CURRENT);
+	} else if (id == R.id.menu_item_titles) {
+            item.setChecked(!item.isChecked());
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                   Settings.System.OMNI_QS_TILE_TITLE_VISIBILITY, item.isChecked() ? 1 : 0,
+                   UserHandle.USER_CURRENT);
         } else if (id ==  R.id.menu_item_qs_columns_six) {
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     Settings.System.OMNI_QS_QUICKBAR_COLUMNS, 6, UserHandle.USER_CURRENT);
