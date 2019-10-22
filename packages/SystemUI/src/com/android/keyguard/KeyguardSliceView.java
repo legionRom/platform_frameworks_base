@@ -30,6 +30,7 @@ import android.annotation.StyleRes;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Trace;
@@ -309,6 +310,16 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         updateTextColors();
     }
 
+    public void setViewsTypeface(Typeface tf) {
+        int childCount = mRow.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View v = mRow.getChildAt(i);
+            if (v instanceof Button) {
+                ((Button) v).setTypeface(tf);
+            }
+        }
+    }
+
     private void updateTextColors() {
         final int blendedColor = getTextColor();
         mTitle.setTextColor(blendedColor);
@@ -557,7 +568,6 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
 
         @Override
         public void onOverlayChanged() {
-            setTextAppearance(sStyleId);
         }
 
         @Override
