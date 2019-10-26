@@ -996,3 +996,4 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
         }
     }
 }
+
