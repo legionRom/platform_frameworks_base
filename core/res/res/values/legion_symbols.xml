@@ -187,6 +187,7 @@
   <!-- True if the notification's dynamic app icon and text tint should be optimised for dark backgrounds -->
   <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
 
+  <java-symbol type="bool" name="config_hasNotificationLed" />
   <java-symbol type="bool" name="config_intrusiveBatteryLed" />
   <java-symbol type="bool" name="config_multiColorBatteryLed" />
   <java-symbol type="bool" name="config_ledCanPulse" />
