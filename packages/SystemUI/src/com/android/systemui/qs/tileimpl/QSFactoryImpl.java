@@ -45,6 +45,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
+import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
@@ -87,6 +88,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
+    private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
 
     private QSTileHost mHost;
 
@@ -115,7 +117,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
-            Provider<ScreenshotTile> screenshotTileProvider) {
+            Provider<ScreenshotTile> screenshotTileProvider,
+            Provider<ScreenRecordTile> screenRecordTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -142,6 +145,7 @@ public class QSFactoryImpl implements QSFactory {
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
+        mScreenRecordTileProvider = screenRecordTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -209,6 +213,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mRebootTileProvider.get();
             case "screenshot":
                 return mScreenshotTileProvider.get();
+            case "screenrecord":
+                return mScreenRecordTileProvider.get();
         }
 
         // Intent tiles.

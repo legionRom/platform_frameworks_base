@@ -162,4 +162,7 @@
     <string name="quick_settings_screenshot_label">Screenshot</string> 
     <string name="quick_settings_region_screenshot_label">Partialvscreenshot</string>
 
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Screenrecord</string>
+
 </resources>
