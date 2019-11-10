@@ -146,6 +146,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
     private static final String GLOBAL_ACTION_KEY_ADVANCED = "advanced";
     private static final String GLOBAL_ACTION_KEY_TORCH = "torch";
+    private static final String GLOBAL_ACTION_KEY_SCREENRECORD = "screenrecord";
 
     private static final int SHOW_TOGGLES_BUTTON = 1;
     private static final int RESTART_HOT_BUTTON = 2;
@@ -502,6 +503,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                         Settings.System.POWERMENU_SCREENSHOT, 0) != 0) {
                     mItems.add(new ScreenshotAction());
                 }
+            } else if (GLOBAL_ACTION_KEY_SCREENRECORD.equals(actionKey)) {
+                mItems.add(new ScreenrecordAction());
             } else if (GLOBAL_ACTION_KEY_LOGOUT.equals(actionKey)) {
                 if (mDevicePolicyManager.isLogoutEnabled()
                         && getCurrentUser().id != UserHandle.USER_SYSTEM) {
@@ -739,7 +742,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mScreenshotHelper.takeScreenshot(1, true, true, mHandler, null);
+                    mScreenshotHelper.takeScreenshot(1/*TAKE_SCREENSHOT_FULLSCREEN*/, true, true, mHandler);
                     MetricsLogger.action(mContext,
                             MetricsEvent.ACTION_SCREENSHOT_POWER_MENU);
                 }
@@ -760,12 +763,15 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean onLongPress() {
-            //if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
-                mDialog.dismiss();
-                mScreenRecordHelper.launchRecordPrompt();
-            /*} else {
-                onPress();
-            }*/
+            mDialog.dismiss();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mScreenshotHelper.takeScreenshot(2/*TAKE_SCREENSHOT_SELECTED_REGION*/, true, true, mHandler);
+                    MetricsLogger.action(mContext,
+                            MetricsEvent.ACTION_SCREENSHOT_POWER_MENU);
+                }
+            }, 500);
             return true;
         }
     }
@@ -801,6 +807,33 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 return false;
             }
         };
+    }
+
+    private class ScreenrecordAction extends SinglePressAction implements LongPressAction {
+        public ScreenrecordAction() {
+            super(R.drawable.ic_lock_screenrecord,
+            com.android.systemui.R.string.global_action_screenrecord);
+        }
+
+        @Override
+        public void onPress() {
+            mScreenRecordHelper.launchRecordPrompt();
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return false;
+        }
+
+        @Override
+        public boolean onLongPress() {
+            return false;
+        }
     }
 
     private class BugReportAction extends SinglePressAction implements LongPressAction {
