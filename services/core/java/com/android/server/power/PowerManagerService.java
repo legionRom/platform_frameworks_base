@@ -5077,8 +5077,6 @@ public final class PowerManagerService extends SystemService
         }
     }
 
-    @VisibleForTesting
-    final class LocalService extends PowerManagerInternal {
         @Override
         public void setScreenBrightnessOverrideFromWindowManager(int screenBrightness) {
             if (screenBrightness < PowerManager.BRIGHTNESS_DEFAULT
