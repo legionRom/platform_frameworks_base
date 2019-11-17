@@ -51,4 +51,12 @@
     <java-symbol type="integer" name="config_proximityCheckTimeout" />
     <!-- Proximity check on screen on default -->
     <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
+
+    <!-- Alternative keyhandler -->
+    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
+    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
+
+    <!-- FP sensor -->
+    <java-symbol type="bool" name="config_hasFingerprintSensor" />
+
 </resources>
