@@ -26,6 +26,7 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.os.Handler;
 import android.os.UserHandle;
+import android.os.SystemClock;
 
 import com.android.internal.statusbar.IStatusBarService;
 
