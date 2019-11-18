@@ -4243,8 +4243,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.CENTER_TEXT_CLOCK),
                     false, this, UserHandle.USER_ALL);
-	}
-
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.SHOW_BACK_ARROW_GESTURE),
+                    false, this, UserHandle.USER_ALL);
+        }
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.System.getUriFor(Settings.System.FORCE_SHOW_NAVBAR))) {
@@ -4284,6 +4286,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateQSPanel();
             stockQSHeaderStyle();
             updateQSHeaderStyle();
+            setHideArrowForBackGesture();
         }
     }
 
@@ -4328,6 +4331,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.LESS_BORING_HEADS_UP, 0,
                 UserHandle.USER_CURRENT) == 1;
         mNotificationInterruptionStateProvider.setUseLessBoringHeadsUp(lessBoringHeadsUp);
+
+    private void setHideArrowForBackGesture() {
+        if (getNavigationBarView() != null) {
+            getNavigationBarView().updateBackArrowForGesture();
+        }
     }
 
     public int getWakefulnessState() {
