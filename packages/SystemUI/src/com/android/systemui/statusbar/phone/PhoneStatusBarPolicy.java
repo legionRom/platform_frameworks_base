@@ -66,6 +66,10 @@ import com.android.systemui.statusbar.policy.SensorPrivacyController;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -169,7 +173,6 @@ public class PhoneStatusBarPolicy
         mSlotLocation = context.getString(com.android.internal.R.string.status_bar_location);
         mSlotMicrophone = context.getString(com.android.internal.R.string.status_bar_microphone);
         mSlotCamera = context.getString(com.android.internal.R.string.status_bar_camera);
-	mSlotNfc = context.getString(com.android.internal.R.string.status_bar_nfc);
         mSlotSensorsOff = context.getString(com.android.internal.R.string.status_bar_sensors_off);
 
         // listen for broadcasts
