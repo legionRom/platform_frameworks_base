@@ -1178,4 +1178,8 @@
     <dimen name="volume_dialog_ringer_spacing">4dip</dimen>
     <dimen name="volume_dialog_ringer_height">38dip</dimen>
 
+    <dimen name="lockscreen_shortcuts_preview_paddingVertical">30dp</dimen>
+    <dimen name="lockscreen_shortcuts_preview_paddingHorizontal">50dp</dimen>
+    <dimen name="keyguard_affordance_icon_preview_padding">15dp</dimen>
+
 </resources>
