@@ -489,6 +489,7 @@ public class PhoneStatusBarPolicy
         } else {
             mIconController.setIcon(mSlotBluetooth, iconId, contentDescription);
         }
+	bluetoothVisible = mBluetooth.isBluetoothEnabled();
         mIconController.setIconVisibility(mSlotBluetooth, bluetoothVisible);
     }
 
