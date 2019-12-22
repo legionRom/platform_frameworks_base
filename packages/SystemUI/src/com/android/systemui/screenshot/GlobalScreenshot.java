@@ -213,6 +213,8 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         } else {
             mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE, imageDate);
         }
+	mScreenshotId = String.format(SCREENSHOT_ID_TEMPLATE, UUID.randomUUID());
+
 	mSmartActionsEnabled = DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_SYSTEMUI,
 	SystemUiDeviceConfigFlags.ENABLE_SCREENSHOT_NOTIFICATION_SMART_ACTIONS, false);
 	if (mSmartActionsEnabled) {
