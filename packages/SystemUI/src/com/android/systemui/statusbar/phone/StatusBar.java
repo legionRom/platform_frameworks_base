@@ -59,6 +59,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.StatusBarManager;
 import android.app.UiModeManager;
+import android.app.WallpaperColors;
 import android.app.WallpaperInfo;
 import android.app.WallpaperManager;
 import android.app.admin.DevicePolicyManager;
@@ -3602,6 +3603,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             Dependency.get(ConfigurationController.class).notifyThemeChanged();
         }
         updateCorners();
+        updateQSPanel();
     }
 
     private void updateCorners() {
@@ -3619,6 +3621,27 @@ public class StatusBar extends SystemUI implements DemoMode,
             int resourceIdSBPadding = (int) mContext.getResources().getDimension(R.dimen.status_bar_extra_padding);
             Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 Settings.Secure.SYSUI_STATUS_BAR_PADDING, (int) (resourceIdSBPadding / density), UserHandle.USER_CURRENT);
+        }
+    }
+
+    private void updateQSPanel() {
+        int userQsWallColorSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.QS_PANEL_BG_USE_WALL, 0, UserHandle.USER_CURRENT);
+        boolean setQsFromWall = userQsWallColorSetting == 1;
+        if (setQsFromWall) {
+            WallpaperColors systemColors = mColorExtractor
+                    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
+            if (systemColors != null)
+            {
+                Color mColor = systemColors.getPrimaryColor();
+                int mColorInt = mColor.toArgb();
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.QS_PANEL_BG_COLOR_WALL, mColorInt, UserHandle.USER_CURRENT);
+            } else {
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.QS_PANEL_BG_COLOR_WALL, Color.WHITE, UserHandle.USER_CURRENT);
+            }
+
         }
     }
 
@@ -4177,10 +4200,26 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_LAYOUT_ROWS_LANDSCAPE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+	            Settings.System.QS_PANEL_BG_USE_WALL),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_PANEL_BG_USE_FW),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                     Settings.System.QS_PANEL_BG_COLOR),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_PANEL_BG_COLOR_WALL),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+	            Settings.System.QS_PANEL_BG_USE_ACCENT),
+	            false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
+<<<<<<< HEAD
             if (uri.equals(Settings.System.getUriFor(Settings.System.FORCE_SHOW_NAVBAR))) {
                 updateNavigationBar(getRegisterStatusBarResult(), false);
 	    } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_CLOCK_SELECTION)) ||
@@ -4189,9 +4228,18 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_ALPHA)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_INTENSITY))) {
                 updateBlurVisibility();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_PANEL_BG_USE_WALL))) {
+                updateQSPanel();
+                mQSPanel.getHost().reloadAllTiles();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_FW)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_COLOR)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_COLOR_WALL)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_ACCENT))) {
+                mQSPanel.getHost().reloadAllTiles();
 	    }
 	    update();
-        }
+	}
          public void update() {
             setHeadsUpStoplist();
             setHeadsUpBlacklist();
@@ -4201,7 +4249,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateCorners();
 	    updateKeyguardStatusSettings();
 	    setQsColumns();
-        }
+            updateQSPanel();
     }
 
     private void updateKeyguardStatusSettings() {
