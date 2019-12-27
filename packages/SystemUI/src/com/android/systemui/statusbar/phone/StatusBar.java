@@ -135,7 +135,7 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.statusbar.RegisterStatusBarResult;
-import com.android.internal.util.legion.LegionUtils;
+import com.android.internal.util.legion.LUtils;
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.hwkeys.PackageMonitor;
@@ -5054,7 +5054,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     private void updateNavigationBar(@Nullable RegisterStatusBarResult result, boolean init) {
-        boolean showNavBar = LegionUtils.deviceSupportNavigationBar(mContext);
+        boolean showNavBar = LUtils.deviceSupportNavigationBar(mContext);
         if (init) {
             if (showNavBar) {
                 mNavigationBarController.createNavigationBars(true, result);
