@@ -133,6 +133,7 @@
   <java-symbol type="string" name="reboot_title" />
   <java-symbol type="string" name="reboot_message" />
 
+  <!-- Toast Material -->
   <java-symbol type="style" name="Animation.Toast.Material" />
 
 </resources>

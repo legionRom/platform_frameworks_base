@@ -5248,23 +5248,6 @@ public final class Settings {
          */
         public static final String POWERMENU_TORCH = "powermenu_torch";
 
-
-        /**
-         * @hide
-         */
-        public static final String TORCH_LONG_PRESS_POWER_GESTURE = "torch_long_press_power_gesture";
-        /** @hide */
-        private static final Validator TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
-        /** @hide */
-        private static final Validator TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
         /**
          * Disable dashboard conditions in settings
          * @hide
@@ -5709,7 +5692,7 @@ public final class Settings {
             VALIDATORS.put(ALLOW_INCALL_HOME, ALLOW_INCALL_HOME_VALIDATOR);
             VALIDATORS.put(LESS_BORING_HEADS_UP, LESS_BORING_HEADS_UP_VALIDATOR);
             VALIDATORS.put(OMNI_BACK_GESTURE_HEIGHT, OMNI_BACK_GESTURE_HEIGHT_VALIDATOR);
-            VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
+            VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);                  
             VALIDATORS.put(ANBI_ENABLED_OPTION, ANBI_ENABLED_OPTION_VALIDATOR); 
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
             VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
@@ -9239,19 +9222,6 @@ public final class Settings {
 
         private static final Validator CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED_VALIDATOR =
                 BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether the torch launch gesture to double tap or long press the power button when the
-         * screen is off should be enabled.
-         *
-         * 0: disabled
-         * 1: double tap power for torch
-         * 2: long tap power for torch
-         * @hide
-         */
-        public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
-
-        private static final Validator TORCH_POWER_BUTTON_GESTURE_VALIDATOR = NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
          * Whether the camera double twist gesture to flip between front and back mode should be
