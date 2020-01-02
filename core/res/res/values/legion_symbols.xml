@@ -183,4 +183,8 @@
   <java-symbol type="style" name="GlobalActionsAnimationCard" />
   <java-symbol type="style" name="GlobalActionsAnimationRotate" />
 
+  <java-symbol type="bool" name="config_allowNotificationIconTextTinting" /> 
+  <!-- True if the notification's dynamic app icon and text tint should be optimised for dark backgrounds -->
+  <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
+
 </resources>
