@@ -803,6 +803,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     mVolumeMusicControlActive = true;
                     break;
                 case MSG_TOGGLE_TORCH:
+		     toggleFlashLight();
                     performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true,
                             "Power - Long Press - Torch");
                     LegionUtils.toggleCameraFlash();
@@ -819,6 +820,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
             }
         }
+    }
+
+    private void toggleFlashLight() {
+        performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Flashlight toggle");
+        LegionUtils.toggleCameraFlash();
     }
 
     private UEventObserver mHDMIObserver = new UEventObserver() {
@@ -1328,7 +1334,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 if ((mTorchActionMode == 1) && (!isScreenOn() || isDozeMode())) {
                     performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true,
                             "Power - Long Press - Torch");
-                    BeastUtils.toggleCameraFlash();
+                    toggleFlashLight();
                 }
                 break;
             case MULTI_PRESS_POWER_THEATER_MODE:
