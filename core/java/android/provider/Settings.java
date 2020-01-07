@@ -5119,6 +5119,12 @@ public final class Settings {
         public static final String DISMISS_ALL_BUTTON = "dismiss_all_button";
 
         /**
+         * QS blur
+         * @hide
+         */
+        public static final String QS_BLUR = "qs_blur";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
