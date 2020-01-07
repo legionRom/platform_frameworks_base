@@ -25,6 +25,9 @@
     <!-- Custom Analog clocks -->
     <color name="analog_clock_hand_hour_color">@*android:color/accent_device_default_light</color>
 
+    <!-- Sammy accented clock -->
+    <color name="sammy_minutes_accent">@*android:color/accent_device_default_light</color>
+
     <!-- Lock date font size parameters -->
     <dimen name="lock_date_font_size_9">9dp</dimen>
     <dimen name="lock_date_font_size_10">10dp</dimen>
@@ -197,5 +200,10 @@
     <dimen name="lock_clock_font_size_106">106dp</dimen>
     <dimen name="lock_clock_font_size_107">107dp</dimen>
     <dimen name="lock_clock_font_size_108">108dp</dimen>
+<<<<<<< HEAD:packages/SystemUI/res-keyguard/values/legion_colors.xml
+=======
+
+    
+>>>>>>> 4de13b4ba5d... SystemUI: Lockscreen clock styles: Add sammy accent clock and a variant [1/2]:packages/SystemUI/res-keyguard/values/colt_colors.xml
 </resources>
 
