@@ -151,7 +151,7 @@ public final class ClockManager {
         addBuiltinClock(() -> new SamsungClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new SfunyClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new TypeClockController(res, layoutInflater, colorExtractor));
-        addBuiltinClock(() -> new BubbleClockController(res, layoutInflater, colorExtractor));
+        //addBuiltinClock(() -> new BubbleClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new AnalogClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new SpectrumClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new DotClockController(res, layoutInflater, colorExtractor));
@@ -336,7 +336,8 @@ public final class ClockManager {
                     .setTitle(plugin::getTitle)
                     .setId(id)
                     .setThumbnail(plugin::getThumbnail)
-                    .setPreview(() -> plugin.getPreview(mWidth, mHeight))
+                     // to make the preview bigger in ThemePicker
+                    .setPreview(() -> plugin.getPreview(mWidth / 2, mHeight / 2))
                     .build());
         }
 
