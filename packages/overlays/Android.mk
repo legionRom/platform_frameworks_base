@@ -17,29 +17,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := frameworks-base-overlays
 LOCAL_REQUIRED_MODULES := \
-	AccentColorBlackOverlay \
-	AccentColorCinnamonOverlay \
-	AccentColorOceanOverlay \
-	AccentColorOrchidOverlay \
-	AccentColorSpaceOverlay \
-	AccentColorGreenOverlay \
-	AccentColorPurpleOverlay \
-	AccentColorSluttyPinkOverlay \
-	AccentColorBlueMondayOverlay \
-	AccentColorOmniOverlay \
-        AccentColorCocaColaOverlay \
-	AccentColorDiscordOverlay \
-	AccentColorGoldenShowerOverlay \
-	AccentColorJollibeeOverlay \
-        AccentColorNextbitOverlay \
-	AccentColorOnePlusOverlay \
-	AccentColorParanoidOverlay \
-	AccentColorPepsiOverlay \
-        AccentColorRazerOverlay \
-        AccentColorStarbucksOverlay \
-	AccentColorXboxOverlay \
-	AccentColorXiaomiOverlay \
-	AccentColorLegionOverlay \
 	DisplayCutoutEmulationCornerOverlay \
 	DisplayCutoutEmulationDoubleOverlay \
 	DisplayCutoutEmulationTallOverlay \
