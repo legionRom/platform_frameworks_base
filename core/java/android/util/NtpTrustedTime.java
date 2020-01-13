@@ -41,20 +41,22 @@ public class NtpTrustedTime implements TrustedTime {
     private static NtpTrustedTime sSingleton;
     private static Context sContext;
 
-    private final String mServer;
+    private String mServer;
     private final long mTimeout;
 
     private ConnectivityManager mCM;
 
     private boolean mHasCache;
+    private final boolean mHasSecureServer;
     private long mCachedNtpTime;
     private long mCachedNtpElapsedRealtime;
     private long mCachedNtpCertainty;
 
-    private NtpTrustedTime(String server, long timeout) {
+    private NtpTrustedTime(String server, long timeout, boolean hasSecureServer) {
         if (LOGD) Log.d(TAG, "creating NtpTrustedTime using " + server);
         mServer = server;
         mTimeout = timeout;
+        mHasSecureServer = hasSecureServer;
     }
 
     @UnsupportedAppUsage
