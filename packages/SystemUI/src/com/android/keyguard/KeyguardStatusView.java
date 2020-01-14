@@ -38,11 +38,13 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.core.graphics.ColorUtils;
 
 import com.android.internal.widget.LockPatternUtils;
+import com.android.keyguard.clock.CustomTextClock;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.Interpolators;
@@ -65,6 +67,7 @@ public class KeyguardStatusView extends GridLayout implements
     private LinearLayout mStatusViewContainer;
     private TextView mLogoutView;
     private KeyguardClockSwitch mClockView;
+    private CustomTextClock mTextClock;
     private TextView mOwnerInfo;
     private KeyguardSliceView mKeyguardSlice;
     private View mNotificationIcons;
@@ -227,6 +230,7 @@ public class KeyguardStatusView extends GridLayout implements
 
         mClockView = findViewById(R.id.keyguard_clock_container);
         mClockView.setShowCurrentUserTime(true);
+        mTextClock = findViewById(R.id.custom_text_clock_view);
         mOwnerInfo = findViewById(R.id.owner_info);
         mKeyguardSlice = findViewById(R.id.keyguard_status_area);
         mKeyguardSliceView = findViewById(R.id.keyguard_status_area);
@@ -328,6 +332,8 @@ public class KeyguardStatusView extends GridLayout implements
         } else if (mClockSelection == 11) {
             mClockView.setFormat12Hour(Html.fromHtml("<font color='#454545'>hh</font><br><font color=" + getResources().getColor(R.color.sammy_minutes_accent) + ">mm</font>"));
             mClockView.setFormat24Hour(Html.fromHtml("<font color='#454545'>kk</font><br><font color=" + getResources().getColor(R.color.sammy_minutes_accent) + ">mm</font>"));
+        } else if (mClockSelection == 12) {
+            mTextClock.onTimeChanged();
         } else {
             mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong><br>mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong><br>mm"));
@@ -837,23 +843,42 @@ public class KeyguardStatusView extends GridLayout implements
         mClockSelection = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 2, UserHandle.USER_CURRENT);
 
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)
+                mKeyguardSlice.getLayoutParams();
+
         mSmallClockView = findViewById(R.id.clock_view);
+        mTextClock = findViewById(R.id.custom_text_clock_view);
 
         switch (mClockSelection) {
             case 1: // hidden
                 mSmallClockView.setVisibility(View.GONE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 2: // default
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 3: // default (bold)
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 4: // sammy
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 5: // sammy (bold)
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                break;
+            case 6: // custom text clock
+                mTextClock.setVisibility(View.VISIBLE);
+                mSmallClockView.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.custom_text_clock_view);
                 break;
             case 6: // default (accent hr)
                 mClockView.setVisibility(View.VISIBLE);
