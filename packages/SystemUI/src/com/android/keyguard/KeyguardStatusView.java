@@ -44,6 +44,7 @@ import android.widget.TextView;
 import androidx.core.graphics.ColorUtils;
 
 import com.android.internal.widget.LockPatternUtils;
+import com.android.keyguard.clock.CustomAnalogClock;
 import com.android.keyguard.clock.CustomTextClock;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
@@ -68,6 +69,7 @@ public class KeyguardStatusView extends GridLayout implements
     private TextView mLogoutView;
     private KeyguardClockSwitch mClockView;
     private CustomTextClock mTextClock;
+    private CustomAnalogClock mCustomClockView;
     private TextView mOwnerInfo;
     private KeyguardSliceView mKeyguardSlice;
     private View mNotificationIcons;
@@ -231,6 +233,7 @@ public class KeyguardStatusView extends GridLayout implements
         mClockView = findViewById(R.id.keyguard_clock_container);
         mClockView.setShowCurrentUserTime(true);
         mTextClock = findViewById(R.id.custom_text_clock_view);
+        mCustomNumClockView = findViewById(R.id.custom_clock_view);
         mOwnerInfo = findViewById(R.id.owner_info);
         mKeyguardSlice = findViewById(R.id.keyguard_status_area);
         mKeyguardSliceView = findViewById(R.id.keyguard_status_area);
@@ -334,6 +337,8 @@ public class KeyguardStatusView extends GridLayout implements
             mClockView.setFormat24Hour(Html.fromHtml("<font color='#454545'>kk</font><br><font color=" + getResources().getColor(R.color.sammy_minutes_accent) + ">mm</font>"));
         } else if (mClockSelection == 12) {
             mTextClock.onTimeChanged();
+        } else if (mClockSelection == 9) {
+            mCustomClockView.onTimeChanged();
         } else {
             mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong><br>mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong><br>mm"));
@@ -848,67 +853,86 @@ public class KeyguardStatusView extends GridLayout implements
 
         mSmallClockView = findViewById(R.id.clock_view);
         mTextClock = findViewById(R.id.custom_text_clock_view);
+        mCustomClockView = findViewById(R.id.custom_clock_view);
 
         switch (mClockSelection) {
             case 1: // hidden
                 mSmallClockView.setVisibility(View.GONE);
                 mTextClock.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 2: // default
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 3: // default (bold)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 4: // sammy
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 5: // sammy (bold)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 6: // default (accent hr)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 7: // default (accent min)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 8: // sammy
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+		mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 9: // sammy (bold)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+		mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 10: // sammy (accent)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+		mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 11: // sammy (accent alt)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
+		mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 12: // custom text clock
                 mTextClock.setVisibility(View.VISIBLE);
                 mSmallClockView.setVisibility(View.GONE);
+                mCustomClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.custom_text_clock_view);
+                break;
+            case 9: // custom analog clock
+                mCustomClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                mSmallClockView.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.custom_clock_view);
                 break;
         }
     }
