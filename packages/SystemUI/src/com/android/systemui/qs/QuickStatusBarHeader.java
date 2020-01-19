@@ -209,6 +209,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mSystemIconsView = findViewById(R.id.quick_status_bar_system_icons);
         mQuickQsStatusIcons = findViewById(R.id.quick_qs_status_icons);
         StatusIconContainer iconContainer = findViewById(R.id.statusIcons);
+
+        mPermissionsHubEnabled = PrivacyItemControllerKt.isPermissionsHubEnabled();
+
         iconContainer.setShouldRestrictIcons(false);
         mIconManager = new TintedIconManager(iconContainer);
 
@@ -254,6 +257,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryRemainingIcon.setIsQsHeader(true);
         mRingerModeTextView.setSelected(true);
         mNextAlarmTextView.setSelected(true);
+
         updateSettings();
     }
 
