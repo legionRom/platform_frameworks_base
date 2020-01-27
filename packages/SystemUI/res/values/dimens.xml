@@ -1171,4 +1171,8 @@
 
     <dimen name="qs_tiles_extra_margin_top">2dp</dimen>
 
+
+    <!-- FOD recognizing animation -->
+    <dimen name="fod_animation_size">280dp</dimen>
+
 </resources>
