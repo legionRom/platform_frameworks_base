@@ -5590,6 +5590,12 @@ public final class Settings {
         public static final String FOD_ANIM = "fod_anim";
 
         /**
+         * FOD pressed state
+         * @hide
+         */
+        public static final String FOD_PRESSED_STATE = "fod_pressed_state";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
