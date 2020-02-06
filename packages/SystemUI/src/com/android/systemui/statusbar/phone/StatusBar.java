@@ -699,7 +699,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mKeyguardViewMediator = getComponent(KeyguardViewMediator.class);
 	mNavigationBarSystemUiVisibility = mNavigationBarController.createSystemUiVisibility();
         mActivityIntentHelper = new ActivityIntentHelper(mContext);
-        final KeyguardSliceProvider sliceProvider = KeyguardSliceProviderGoogle.getAttachedInstance();
+        KeyguardSliceProvider sliceProvider = KeyguardSliceProviderGoogle.getAttachedInstance();
         if (sliceProvider != null) {
             sliceProvider.initDependencies(mMediaManager, mStatusBarStateController,
                     mKeyguardBypassController, DozeParameters.getInstance(mContext));
@@ -1933,82 +1933,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public NotificationPresenter getPresenter() {
         return mPresenter;
-    }
-
-    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
-    private class CustomSettingsObserver extends ContentObserver {
-
-        CustomSettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.PULSE_ON_NEW_TRACKS),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
-                    false, this, UserHandle.USER_ALL);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            if (uri.equals(Settings.Secure.getUriFor(
-                    Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
-                setFpToDismissNotifications();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR))) {
-                setLockScreenMediaBlurLevel();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.PULSE_ON_NEW_TRACKS))) {
-                setPulseOnNewTracks();
-            } else if (uri.equals(Settings.Secure.getUriFor(
-                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED))) {
-                setAmbientVis();
-            }
-        }
-
-        public void update() {
-            setFpToDismissNotifications();
-            setLockScreenMediaBlurLevel();
-            setPulseOnNewTracks();
-            setAmbientVis();
-        }
-    }
-
-    private void setFpToDismissNotifications() {
-        mFpDismissNotifications = Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS, 0,
-                UserHandle.USER_CURRENT) == 1;
-    }
-
-    private void setLockScreenMediaBlurLevel() {
-        if (mMediaManager != null) {
-            mMediaManager.setLockScreenMediaBlurLevel();
-        }
-    }
-
-    private void setAmbientVis() {
-        mAmbientVisualizer = Settings.Secure.getIntForUser(
-                mContext.getContentResolver(), Settings.Secure.AMBIENT_VISUALIZER_ENABLED, 0,
-                UserHandle.USER_CURRENT) == 1;
-    }
-
-    private void setPulseOnNewTracks() {
-        final KeyguardSliceProvider sliceProvider = KeyguardSliceProviderGoogle.getAttachedInstance();
-        if (sliceProvider != null) {
-            sliceProvider.setPulseOnNewTracks(Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.PULSE_ON_NEW_TRACKS, 1,
-                    UserHandle.USER_CURRENT) == 1);
-        }
-    }
+    }     
 
     /**
      * All changes to the status bar and notifications funnel through here and are batched.
@@ -2727,6 +2652,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         for (Map.Entry<String, ?> entry : Prefs.getAll(mContext).entrySet()) {
             pw.print("  "); pw.print(entry.getKey()); pw.print("="); pw.println(entry.getValue());
         }
+	if (mFlashlightController != null) {
+	    mFlashlightController.dump(fd, pw, args);
+	}
         SmartSpaceController.get(this.mContext).dump(fd, pw, args);
     }
 
@@ -4709,31 +4637,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 callback.toggleFlashlightProximityCheck();
             }
         }
-
-        @Override
-        public void performToggleFlashlight() {
-            toggleFlashlight();
-        }
-    }
-
-    public boolean isDoubleTapOnMusicTicker(float eventX, float eventY) {
-        final KeyguardSliceProvider sliceProvider = KeyguardSliceProviderGoogle.getAttachedInstance();
-        View trackTitleView = null;
-        if (mNotificationPanel != null) {
-            trackTitleView = mNotificationPanel.getKeyguardStatusView().getKeyguardSliceView().getTitleView();
-        }
-        if (eventX <= 0 || eventY <= 0 || sliceProvider == null || trackTitleView == null
-                || !sliceProvider.needsMediaLocked()) {
-            return false;
-        }
-        trackTitleView.getLocationOnScreen(mTmpInt2);
-        float viewX = eventX - mTmpInt2[0];
-        float viewY = eventY - mTmpInt2[1];
-        if (0 <= viewX && viewX <= trackTitleView.getWidth()
-                && 0 <= viewY && viewY <= trackTitleView.getHeight()) {
-            return true;
-        }
-        return false;
+	@Override
+	     public void performToggleFlashlight() {
+		toggleFlashlight();
+	}
     }
 
     public boolean shouldIgnoreTouch() {
