@@ -5044,7 +5044,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     private void updateNavigationBar(@Nullable RegisterStatusBarResult result, boolean init) {
-        boolean showNavBar = EvolutionUtils.deviceSupportNavigationBar(mContext);
+        boolean showNavBar = LegionUtils.deviceSupportNavigationBar(mContext);
         if (init) {
             if (showNavBar) {
                 mNavigationBarController.createNavigationBars(true, result);

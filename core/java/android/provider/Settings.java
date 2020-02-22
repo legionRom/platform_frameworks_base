@@ -5442,13 +5442,12 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(ALLOW_INCALL_HOME);
             PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
-            PRIVATE_SETTINGS.add(OMNI_BACK_GESTURE_HEIGHT; 
+            PRIVATE_SETTINGS.add(OMNI_BACK_GESTURE_HEIGHT); 
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(ANBI_ENABLED_OPTION);
             }
-            
         /**
-         * These are all public syssettings             
+         * These are all public system settings
          *
          * All settings in {@link SETTINGS_TO_BACKUP} array *must* have a non-null validator,
          * otherwise they won't be restored.
