@@ -175,7 +175,7 @@ public class NavigationBarInflaterView extends FrameLayout
             mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
             updateLayoutInversion();
         }
-        if (NAV_BAR_VIEWS.equals(key)) {
+        if (QuickStepContract.isGesturalMode(mNavBarMode)) {
             setNavigationBarLayout(newValue);
         }
     }
