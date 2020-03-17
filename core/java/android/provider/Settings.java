@@ -4864,25 +4864,16 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
-         * Wheter to show network traffic indicator
+         * Whether the phone vibrates on call connect
          * @hide
          */
-        public static final String NETWORK_TRAFFIC_LOCATION = "network_traffic_location";
+        public static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
+        /** @hide */
+        private static final Validator VIBRATE_ON_CONNECT_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
-        /**
-         * Network traffic inactivity threshold (default is 1 kBs)
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
-
-        /**
-         * Whether to disable showing arrows in statusbar network traffic indicators
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_ARROW = "network_traffic_arrow";
-
-        /**
-         * Whether to display 4G icon instead LTE
+         /**
+         * Whether the phone vibrates on call waiting
          * @hide
          */
         public static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
