@@ -108,7 +108,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.Panel.ACTION_MOBILE_DATA);
+        return getCellularSettingIntent();
     }
 
     @Override
@@ -183,8 +183,9 @@ public class CellularTile extends QSTileImpl<SignalState> {
         }
 
         DataUsageController.DataUsageInfo carrierLabelInfo = mDataController.getDataUsageInfo();
-        final Resources r = mContext.getResources();
+
         state.dualTarget = true;
+        final Resources r = mContext.getResources();
         boolean mobileDataEnabled = mDataController.isMobileDataSupported()
                 && mDataController.isMobileDataEnabled();
         state.value = mobileDataEnabled;
