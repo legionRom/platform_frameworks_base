@@ -4560,9 +4560,7 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * The button brightness to be used while the screen is on or after a button press,
-         * depending on the value of {@link BUTTON_BACKLIGHT_TIMEOUT}.
-         * Valid value range is between 0 and {@link PowerManager#getMaximumButtonBrightness()}
+         * Whether to skip music track with volume rocker
          * @hide
          */
         public static final String BUTTON_BRIGHTNESS = "button_brightness";
