@@ -32,5 +32,4 @@
     <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
 
     <string name="global_action_screenshot_cust">"Screen/Rec"</string>
-    <string name="usage_data">used</string>
 </resources>
