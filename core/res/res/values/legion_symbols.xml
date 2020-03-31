@@ -73,10 +73,5 @@
     <java-symbol type="string" name="config_SmartChargingResumeValue" />
     <java-symbol type="bool" name="config_hasInternalAudioRecordingSupport" />
 
-    <java-symbol type="integer" name="config_longPressOnHomeBehaviorHwKeys" />
-    <java-symbol type="integer" name="config_doubleTapOnHomeBehaviorHwKeys" />
-    <java-symbol type="integer" name="config_longPressOnMenuBehaviorHwKeys" />
-    <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
-
     <java-symbol type="color" name="theme_generic_semi_transparent_color" />
 </resources>
