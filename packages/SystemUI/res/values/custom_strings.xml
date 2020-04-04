@@ -31,8 +31,6 @@
     <string name="screenrecord_low_quality_title">Low quality</string>
     <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
 
-    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
-    <string name="global_action_screenshot_cust">Screenshot</string>
-    <string name="global_action_screenrecord">Screenrecord</string>
+    <string name="global_action_screenshot_cust">"Screen/Rec"</string>
 
 </resources>
