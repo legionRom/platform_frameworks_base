@@ -28,6 +28,8 @@
     <!-- Sammy accented clock -->
     <color name="sammy_minutes_accent">@*android:color/accent_device_default_light</color>
 
+    <color name="clock_sf_system_background_dark">@*android:color/background_device_default_dark</color>
+
     <!-- Lock date font size parameters -->
     <dimen name="lock_date_font_size_9">9dp</dimen>
     <dimen name="lock_date_font_size_10">10dp</dimen>
