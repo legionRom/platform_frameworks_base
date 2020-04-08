@@ -552,11 +552,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
                         NotificationUtils.useNewInterruptionModel(context),
                         mShowHeaders);
         mSectionsManager.initialize(LayoutInflater.from(context));
-        mSectionsManager.setOnClearGentleNotifsClickListener(v -> {
-            // Leave the shade open if there will be other notifs left over to clear
-            final boolean closeShade = !hasActiveClearableNotifications(ROWS_HIGH_PRIORITY);
-            clearNotifications(ROWS_GENTLE, closeShade, false/*forceToLeft*/);
-        });
 
         mAmbientState = new AmbientState(context, mSectionsManager, mHeadsUpManager);
         mBgColor = context.getColor(R.color.notification_shade_background_color);
@@ -803,7 +798,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         mIconColor = mContext.getColor(R.color.recents_dismiss_all_icon_color);
         updateBackgroundDimming();
         mShelf.onUiModeChanged();
-        mSectionsManager.onUiModeChanged();
         StatusBar.updateDismissAllButton(mBackgroundColor, mIconColor);
     }
 
