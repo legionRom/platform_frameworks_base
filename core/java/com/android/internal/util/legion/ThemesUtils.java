@@ -37,5 +37,13 @@ public class ThemesUtils {
             "com.android.theme.system.darkgray",
             "com.android.theme.systemui.darkgray",
     };
+    public static final String[] PITCH_BLACK = {
+            "com.android.theme.pitchblack.system",
+            "com.android.theme.pitchblack.systemui",
+    };
+    public static final String[] MATERIAL_OCEAN = {
+            "com.android.theme.materialocean.system",
+            "com.android.theme.materialocean.systemui",
+    };
 }
 
