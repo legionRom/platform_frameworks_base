@@ -276,6 +276,9 @@
     <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER" />
     <uses-permission android:name="android.permission.SHUTDOWN" />
 
+    <!-- Asus Long screenshot -->
+    <uses-permission android:name="com.asus.stitchimage.permission.EXPORTED_FOR_ASUS_APPS"/>
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"

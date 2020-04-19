@@ -18,5 +18,7 @@
     <bool name="config_useMaskForQs">true</bool>
 
     <color name="config_fodColor">#00ff00</color>
+
+    <string name="config_stitchEditor">com.asus.stitchimage/com.asus.stitchimage.editor.ScreenshotEditorActivity</string>
 </resources>
 
