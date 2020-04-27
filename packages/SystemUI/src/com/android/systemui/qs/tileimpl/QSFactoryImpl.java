@@ -82,8 +82,9 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<DataSaverTile> mDataSaverTileProvider;
     private final Provider<NightDisplayTile> mNightDisplayTileProvider;
     private final Provider<NfcTile> mNfcTileProvider;
-    private final Provider<GarbageMonitor.MemoryTile> mMemoryTileProvider;
-    private final Provider<UiModeNightTile> mUiModeNightTileProvider;
+    private final Provider<GarbageMonitor.MemoryTile> mMemoryTileProver;
+    private final Provider<CaffeineTile> mCaffeineTileProvider;
+    private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
     private final Provider<AODTile> mAODTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
@@ -115,7 +116,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<NightDisplayTile> nightDisplayTileProvider,
             Provider<NfcTile> nfcTileProvider,
             Provider<GarbageMonitor.MemoryTile> memoryTileProvider,
-            Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<AODTile> aodTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
@@ -143,7 +143,8 @@ public class QSFactoryImpl implements QSFactory {
         mNightDisplayTileProvider = nightDisplayTileProvider;
         mNfcTileProvider = nfcTileProvider;
         mMemoryTileProvider = memoryTileProvider;
-        mUiModeNightTileProvider = uiModeNightTileProvider;
+        mCaffeineTileProvider = caffeineTileProvider;
+        mAmbientDisplayTileProvider = ambientDisplayTileProvider;
         mAODTileProvider = aodTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
@@ -204,8 +205,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mNightDisplayTileProvider.get();
             case "nfc":
                 return mNfcTileProvider.get();
-            case "dark":
-                return mUiModeNightTileProvider.get();
             case "aod":
                 return mAODTileProvider.get();
             case "caffeine":
