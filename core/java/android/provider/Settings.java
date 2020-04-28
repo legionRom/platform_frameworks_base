@@ -5589,6 +5589,18 @@ public final class Settings {
          */
         public static final String FOD_ANIM = "fod_anim";
 
+	/**
+        * Powermenu Background
+        * @hide
+        */
+        public static final String POWER_MENU_BG = "power_menu_bg";
+
+        /**
+        * Powermenu Background Style
+        * @hide
+        */
+        public static final String POWER_MENU_BG_STYLE = "power_menu_bg_style";
+
         /**
          * FOD pressed state
          * @hide
