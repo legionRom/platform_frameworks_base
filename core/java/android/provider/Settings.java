@@ -5127,12 +5127,6 @@ public final class Settings {
          */
         public static final String DISMISS_ALL_BUTTON = "dismiss_all_button";
 
-        /**
-         * QS blur
-         * @hide
-         */
-        public static final String QS_BLUR = "qs_blur";
-
 
 	/**
          * Some creation simillar to samsung OneUI
