@@ -4603,47 +4603,6 @@ public final class Settings {
          */
         public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
 
-         * If On-The-Go should be displayed at the power menu.
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_ONTHEGO = "global_actions_onthego";
-
-        /**
-         * The alpha value of the On-The-Go overlay.
-         *
-         * @hide
-         */
-        public static final String ON_THE_GO_ALPHA = "on_the_go_alpha";
-
-        /**
-         * Whether the service should restart itself or not.
-         *
-         * @hide
-         */
-        public static final String ON_THE_GO_SERVICE_RESTART = "on_the_go_service_restart";
-
-        /**
-         * The camera instance to use.
-         * 0 = Rear Camera
-         * 1 = Front Camera
-         *
-         * @hide
-         */
-        public static final String ON_THE_GO_CAMERA = "on_the_go_camera";
-
-        /**
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_LIST = "global_actions_list";
-
-        /**
-         * Whether to display power in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_POWER = "global_actions_power";
-
          /**
          * Show or hide clock
          * 0 - hide
@@ -4795,20 +4754,6 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
-         * Whether to display the power menu reboot option on a secured lockscreen
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_RESTART = "global_actions_restart";
-
-        /**
-         * Whether to display sound panel in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_SOUNDPANEL = "global_actions_soundpanel";
-
-        /**
          * Enable\Disable visibility of smart replies in notifications
          * @hide
          */
@@ -4817,26 +4762,6 @@ public final class Settings {
         /** @hide */
         private static final Validator HIDE_SMART_REPLIES_VALIDATOR = BOOLEAN_VALIDATOR;
 
-        /**
-         * Whether to display screenshot in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_SCREENSHOT = "global_actions_screenshot";
-
-        /**
-         * Whether to display screenrecord in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_SCREENRECORD = "global_actions_screenrecord";
-
-        /**
-         * Whether to display settings in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
 
         /** @hide */
         public static final String AUDIO_PANEL_VIEW_MEDIA = "audio_panel_view_media";
@@ -4856,42 +4781,6 @@ public final class Settings {
         /** @hide */
         public static final String AUDIO_PANEL_VIEW_BT_SCO = "audio_panel_view_bt_sco";
 
-        /**
-         * Whether to display lock in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_LOCKDOWN = "global_actions_lockdown";
-
-        /**
-         * Whether to display airplane in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_AIRPLANE = "global_actions_airplane";
-
-        /**
-         * Whether to display the users option in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_USERS = "global_actions_users";
-
-        /**
-         * Whether to display the flashlight option in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_FLASHLIGHT = "global_actions_flashlight";
-
-        /**
-         * Whether to display the flashlight option in the power menu
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_EMERGENCY = "global_actions_emergency";
-
-     
         /**
          * Volume rocker wake
          * @hide
@@ -9953,18 +9842,6 @@ public final class Settings {
         public static final String TAP_GESTURE = "tap_gesture";
 
         private static final Validator TAP_GESTURE_VALIDATOR = BOOLEAN_VALIDATOR;
-	/**
-         *
-         * @hide
-         */
-        public static final String GLOBAL_ACTION_DNAA = "global_action_dnaa";
-
-        /**
-         * @hide
-         */
-        public static final String ADVANCED_REBOOT = "advanced_reboot";
-
-        private static final Validator ADVANCED_REBOOT_VALIDATOR = BOOLEAN_VALIDATOR;
 
 	/**
          * Whether user is allowed to pull down quick settings on secure keyguard.
@@ -10174,10 +10051,10 @@ public final class Settings {
             AWARE_LOCK_ENABLED,
             AWARE_TAP_PAUSE_GESTURE_COUNT,
             AWARE_TAP_PAUSE_TOUCH_COUNT,
-            ADVANCED_REBOOT,
             TORCH_POWER_BUTTON_GESTURE,
             VOLUME_LINK_NOTIFICATION,
             LOCKSCREEN_VISUALIZER_ENABLED,
+            AWARE_TAP_PAUSE_TOUCH_COUNT
         };
 
         /**
@@ -10377,7 +10254,6 @@ public final class Settings {
             VALIDATORS.put(AWARE_TAP_PAUSE_GESTURE_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(AWARE_TAP_PAUSE_TOUCH_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(TAP_GESTURE, TAP_GESTURE_VALIDATOR);
-            VALIDATORS.put(ADVANCED_REBOOT, ADVANCED_REBOOT_VALIDATOR);
             VALIDATORS.put(TORCH_POWER_BUTTON_GESTURE, TORCH_POWER_BUTTON_GESTURE_VALIDATOR);
             VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_VISUALIZER_ENABLED, LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR);

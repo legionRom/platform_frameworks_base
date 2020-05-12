@@ -28,22 +28,6 @@
 
     <java-symbol type="bool" name="config_enableScreenrecordChord" />
 
-    <java-symbol type="string" name="global_action_onthego" />
-    <java-symbol type="drawable" name="ic_lock_onthego" />
-
-  <!-- Power menu reboot -->
-  <java-symbol name="reboot_to_bootloader_title" type="string" />
-  <java-symbol name="reboot_to_bootloader_message" type="string" />
-  <java-symbol name="reboot_to_recovery_title" type="string" />
-  <java-symbol name="reboot_to_recovery_message" type="string" />
-  <java-symbol name="reboot_system_title" type="string" />
-  <java-symbol name="reboot_system_message" type="string" />
-  <java-symbol type="array" name="config_rebootActionsList" />
-  <java-symbol type="array" name="values_globalActionsList" />
-  <java-symbol type="style" name="GlobalActionsAnimation" />
-  <java-symbol type="style" name="GlobalActionsAnimationTop" />
-  <java-symbol type="style" name="GlobalActionsAnimationEnter" />
-
     <!-- Alternative keyhandler -->
     <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
     <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
@@ -137,4 +121,5 @@
   <java-symbol type="anim" name="ethans_wallpaper_intra_close_exit" /> 
   <java-symbol type="anim" name="ethans_launch_task_behind_source" /> 
   <java-symbol type="anim" name="ethans_launch_task_behind_target" />
+
 </resources>
