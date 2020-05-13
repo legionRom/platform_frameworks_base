@@ -43,12 +43,12 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.Size;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.util.Size;
 import android.view.Surface;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -97,7 +97,6 @@ public class RecordingService extends Service {
     private static final int AUDIO_SAMPLE_RATE = 44100;
     private static final int LOW_VIDEO_FRAME_RATE = 25;
     private static final int LOW_VIDEO_BIT_RATE = 1500000;
-    private static final String FILE_PROVIDER = "com.android.systemui.fileprovider";
 
     private MediaProjectionManager mMediaProjectionManager;
     private MediaProjection mMediaProjection;
@@ -187,30 +186,7 @@ public class RecordingService extends Service {
 
             case ACTION_STOP:
                 stopRecording();
-
-                // Move temp file to user directory
-                File recordDir = new File(
-                        Environment.getExternalStoragePublicDirectory(DIRECTORY_MOVIES),
-                        RECORD_DIR);
-                if (!recordDir.exists()) {
-                    if (!recordDir.mkdirs()) {
-                        Log.e(TAG,  "Failed to create video capture directory");
-                    }
-                }
-
-                String fileName = new SimpleDateFormat("'screenrecord-'yyyyMMdd-HHmmss'.mp4'")
-                        .format(new Date());
-                Path path = new File(recordDir, fileName).toPath();
-
-                try {
-                    Files.move(mTempFile.toPath(), path);
-                    Notification notification = createSaveNotification(path);
-                    notificationManager.notify(NOTIFICATION_ID, notification);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(this, R.string.screenrecord_delete_error, Toast.LENGTH_LONG)
-                            .show();
-                }
+                saveRecording(notificationManager);
                 break;
 
             case ACTION_PAUSE:
@@ -349,7 +325,7 @@ public class RecordingService extends Service {
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 getString(R.string.screenrecord_name),
-                NotificationManager.IMPORTANCE_HIGH);
+                NotificationManager.IMPORTANCE_LOW);
         channel.setDescription(getString(R.string.screenrecord_channel_description));
         channel.enableVibration(true);
         NotificationManager notificationManager =

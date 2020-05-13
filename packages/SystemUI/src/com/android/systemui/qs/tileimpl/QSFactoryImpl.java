@@ -149,7 +149,6 @@ public class QSFactoryImpl implements QSFactory {
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mScreenRecordTileProvider = screenRecordTileProvider;
-        mRebootTileProvider = rebootTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -219,8 +218,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "screenrecord":
                 return mScreenRecordTileProvider.get();
-            case "reboot":
-                return mRebootTileProvider.get();
         }
 
         // Intent tiles.

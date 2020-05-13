@@ -26,8 +26,6 @@
     <!-- Whether device ignores the RSSNR signal implementation -->
     <java-symbol type="bool" name="config_ignoreRssnrSignalLevel" />
 
-    <java-symbol type="bool" name="config_enableScreenrecordChord" />
-
     <!-- Alternative keyhandler -->
     <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
     <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
