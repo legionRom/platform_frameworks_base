@@ -155,4 +155,8 @@
     <string name="accessibility_quick_settings_cpuinfo_off">CPU Info off</string> 
     <string name="accessibility_quick_settings_cpuinfo_on">CPU Info on</string>
 
+    <!-- FOD View -->
+    <string name="fod_view_title" translatable="false">Fingerprint on display</string>
+    <string name="fod_view_pressed_title" translatable="false">Fingerprint on display.touched</string>
+
 </resources>
