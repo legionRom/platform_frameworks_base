@@ -5453,6 +5453,9 @@ public final class Settings {
         private static final Validator OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**
          * Whether to change the color of the qs panel
          * @hide
