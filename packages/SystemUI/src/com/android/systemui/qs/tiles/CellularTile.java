@@ -358,16 +358,20 @@ public class CellularTile extends QSTileImpl<SignalState> {
             final DataUsageDetailView v = (DataUsageDetailView) (convertView != null
                     ? convertView
                     : LayoutInflater.from(mContext).inflate(R.layout.data_usage, parent, false));
-            DataUsageController.DataUsageInfo info = null;
+            DataUsageController mobileDataController = new DataUsageController(mContext);
+            mobileDataController.setSubscriptionId(
+                    SubscriptionManager.getDefaultDataSubscriptionId());
+            final DataUsageController.DataUsageInfo info = mobileDataController.getDataUsageInfo();
+            DataUsageController.DataUsageInfo info_dialy = null;
             int defaultSubId = SubscriptionManager.getDefaultDataSubscriptionId();
             if (defaultSubId == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
-                info = mDataController.getDataUsageInfo();
+                info_dialy = mDataController.getDailyDataUsageInfo();
             } else {
-                info = mDataController.getDataUsageInfo(
+                info_dialy = mDataController.getDailyDataUsageInfo(
                         DataUsageUtils.getMobileTemplate(mContext, defaultSubId));
             }
             if (info == null) return v;
-            v.bind(info);
+            v.bind(info, info_dialy);
             v.findViewById(R.id.roaming_text).setVisibility(mSignalCallback.mInfo.roaming
                     ? View.VISIBLE : View.INVISIBLE);
             return v;
