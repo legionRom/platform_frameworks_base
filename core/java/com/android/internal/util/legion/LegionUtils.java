@@ -183,6 +183,15 @@ public class LegionUtils {
         return passedMillis;
     }
 
+    // Check if device is connected to Wi-Fi
+    public static boolean isWiFiConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) return false;
+
+        NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        return wifi.isConnected();
+    }
+
     // Method to detect whether an overlay is enabled or not
     public static boolean isThemeEnabled(String packageName) {
         mOverlayService = new OverlayManager();
