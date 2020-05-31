@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 <string name="statusbar_items_title">Statusbar icons</string>
+<string name="status_bar_data_disabled">Data disabled</string>
 <!--
 /* //device/apps/common/assets/res/any/strings.xml
 **

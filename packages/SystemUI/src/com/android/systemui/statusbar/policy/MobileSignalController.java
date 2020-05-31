@@ -54,10 +54,13 @@ import com.android.settingslib.Utils;
 import com.android.settingslib.graph.SignalDrawable;
 import com.android.settingslib.net.SignalStrengthUtil;
 import com.android.systemui.R;
+import com.android.systemui.Dependency;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.Config;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.SubscriptionDefaults;
+import com.android.systemui.tuner.TunerService;
+
 
 import java.io.PrintWriter;
 import java.util.BitSet;
@@ -67,11 +70,10 @@ import java.util.regex.Pattern;
 
 
 public class MobileSignalController extends SignalController<
-        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> {
-
     // The message to display Nr5G icon gracfully by CarrierConfig timeout
-    private static final int MSG_DISPLAY_GRACE = 1;
+        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> implements TunerService.Tunable {
 
+    private static final int MSG_DISPLAY_GRACE = 1;
     private final TelephonyManager mPhone;
     private final SubscriptionDefaults mDefaults;
     private final String mNetworkNameDefault;
@@ -106,7 +108,9 @@ public class MobileSignalController extends SignalController<
     private ImsManager.Connector mImsManagerConnector;
     private int mCallState = TelephonyManager.CALL_STATE_IDLE;
 
-    private boolean mShow4gForLte;
+    // Show lte/4g switch
+    private boolean mShowLteFourGee;
+    private boolean mDataDisabledIcon;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -158,11 +162,12 @@ public class MobileSignalController extends SignalController<
 
 
         mObserver = new ContentObserver(new Handler(receiverLooper)) {
-            @Overridep
+            @Override
             public void onChange(boolean selfChange) {
                 updateTelephony();
             }
         };
+        Dependency.get(TunerService.class).addTunable(this, "data_disabled");
 
         mDisplayGraceHandler = new Handler(receiverLooper) {
             @Override
@@ -185,12 +190,13 @@ public class MobileSignalController extends SignalController<
          }
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.SHOW_FOURG_ICON), false,
-                    this, UserHandle.USER_ALL);
+	    resolver.registerContentObserver(Settings.System.getUriFor(
+	    Settings.System.SHOW_LTE_FOURGEE),
+	    false, this, UserHandle.USER_ALL);
         }
+
          @Override
-         public void onChange(boolean selfChange, Uri uri)
+         public void onChange(boolean selfChange, Uri uri) {
 	    super.onChange(selfChange, uri);
 	    if (uri.equals(Settings.System.getUriFor(
                     Settings.System.SHOW_LTE_FOURGEE))) {
@@ -198,12 +204,23 @@ public class MobileSignalController extends SignalController<
 			mContext.getContentResolver(),
 			Settings.System.SHOW_LTE_FOURGEE,
 			0, UserHandle.USER_CURRENT) == 1;
+		}
 		mapIconSets();
 		updateTelephony();
-		}
-
          }
      }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case "data_disabled":
+                     mDataDisabledIcon  =
+                        TunerService.parseIntegerSwitch(newValue, true);
+                     updateTelephony();
+            default:
+                break;
+        }
+    }
 
     public void setConfiguration(Config config) {
         mConfig = config;
@@ -317,7 +334,8 @@ public class MobileSignalController extends SignalController<
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPA, hGroup);
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPAP, hPlusGroup);
 
-        if (mShow4gForLte) {
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SHOW_LTE_FOURGEE, 0, UserHandle.USER_CURRENT) == 1) {
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE, TelephonyIcons.FOUR_G);
             if (mConfig.hideLtePlus) {
                 mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE_CA,
@@ -657,7 +675,7 @@ public class MobileSignalController extends SignalController<
         mCurrentState.roaming = isRoaming();
         if (isCarrierNetworkChangeActive()) {
             mCurrentState.iconGroup = TelephonyIcons.CARRIER_NETWORK_CHANGE;
-        } else if (isDataDisabled() && !mConfig.alwaysShowDataRatIcon) {
+        } else if (isDataDisabled() && mDataDisabledIcon) {
             if (mSubscriptionInfo.getSubscriptionId()
                     != mDefaults.getDefaultDataSubId()) {
                 mCurrentState.iconGroup = TelephonyIcons.NOT_DEFAULT_DATA;
