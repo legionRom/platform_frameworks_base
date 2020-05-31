@@ -4,10 +4,8 @@
 		<shape android:shape="rectangle">
 			<gradient
 				android:angle="0"
-				android:endColor="@*android:color/profile_badge_3"
-				android:centerColor="@*android:color/profile_badge_2"
-				android:startColor="@*android:color/profile_badge_1"/>
-			<corners android:radius="@*android:dimen/control_corner_material" />
+				android:endColor="@*android:color/gradient_end"	android:startColor="@*android:color/gradient_start"/>
+			<corners android:radius="25.0dip" />
 		</shape>
 	</item>
 	<item android:bottom="5dp"
@@ -16,7 +14,7 @@
 		android:top="-1dp">
 		<shape android:shape="rectangle">
 			<solid android:color="?android:colorBackgroundFloating" />
-			<corners android:radius="@*android:dimen/control_corner_material" />
+			<corners android:radius="25.0dip" />
 		</shape>
 	</item>
 </layer-list>
