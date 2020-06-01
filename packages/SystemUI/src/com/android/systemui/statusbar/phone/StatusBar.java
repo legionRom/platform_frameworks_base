@@ -4349,6 +4349,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 
+    public void updateQSDataUsageInfo() {
+        DataUsageView.updateUsage();
+    }
+
     public int getWakefulnessState() {
         return mWakefulnessLifecycle.getWakefulness();
     }

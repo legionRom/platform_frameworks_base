@@ -5758,6 +5758,9 @@ public final class Settings {
         private static final Validator BLUETOOTH_SHOW_BATTERY_VALIDATOR =
               BOOLEAN_VALIDATOR;
 
+        /** @hide */
+        private static final Validator QS_DATAUSAGE_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**
 	 * @hide
          */
@@ -5972,6 +5975,7 @@ public final class Settings {
             BATTERY_LIGHT_REALLYFULL_COLOR,
             BLUETOOTH_SHOW_BATTERY,
             BACK_GESTURE_HAPTIC,
+            QS_DATAUSAGE,
         };
 
         /**
@@ -6165,6 +6169,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
             PRIVATE_SETTINGS.add(BLUETOOTH_SHOW_BATTERY);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
+            PRIVATE_SETTINGS.add(QS_DATAUSAGE);
         }
 
         /**
@@ -6327,6 +6332,8 @@ public final class Settings {
             VALIDATORS.put(BATTERY_LIGHT_REALLYFULL_COLOR, BATTERY_LIGHT_REALLYFULL_COLOR_VALIDATOR);
             VALIDATORS.put(BLUETOOTH_SHOW_BATTERY,BLUETOOTH_SHOW_BATTERY_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HAPTIC, BACK_GESTURE_HAPTIC_VALIDATOR);
+            VALIDATORS.put(QS_DATAUSAGE, QS_DATAUSAGE_VALIDATOR);
+
         }
 
         /**
