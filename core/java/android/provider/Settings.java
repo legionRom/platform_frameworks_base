@@ -5444,17 +5444,14 @@ public final class Settings {
         private static final Validator OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
-        /** @hide */
-        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = ANY_INTEGER_VALIDATOR;
-
         /**
          * Whether to change the color of the qs panel
          * @hide
          */
         public static final String QS_PANEL_BG_COLOR = "qs_panel_bg_color";
 
-        /** @hide */
-        private static final Validator QS_PANEL_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+	/** @hide */
+	private static final Validator QS_PANEL_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
          * Color of the qs panel evaluated from wallpaper
@@ -5505,7 +5502,7 @@ public final class Settings {
         public static final String QS_PANEL_BG_USE_NEW_TINT = "qs_panel_bg_use_new_tint";
 
         /** @hide */
-        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = BOOLEAN_VALIDATOR;
+        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
 	/**
          * Header height

@@ -4190,18 +4190,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_BLUR_INTENSITY),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_LAYOUT_COLUMNS),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_QUICKBAR_COLUMNS),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_TILE_TITLE_VISIBILITY),
-		    false, this, UserHandle.USER_ALL);
  	    resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.OMNI_QS_LAYOUT_ROWS),
                     false, this, UserHandle.USER_ALL);
@@ -4264,8 +4252,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             setGamingMode();
             updateCorners();
 	    updateKeyguardStatusSettings();
-	    setQsColumns();
             updateQSPanel();
+	}
     }
 
     private void updateKeyguardStatusSettings() {
@@ -4309,14 +4297,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.LESS_BORING_HEADS_UP, 0,
                 UserHandle.USER_CURRENT) == 1;
         mNotificationInterruptionStateProvider.setUseLessBoringHeadsUp(lessBoringHeadsUp);
-    }
-
-    private void setQsColumns() {
-        if (mQSPanel != null) {
-            mQSPanel.updateResources();
-            mQSPanel.updateSettings();
-            mQuickQSPanel.updateSettings();
-        }
     }
 
     public int getWakefulnessState() {

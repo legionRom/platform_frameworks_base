@@ -38,6 +38,9 @@ import android.os.UserHandle;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+
 import com.android.internal.statusbar.IStatusBarService;
 
 public class LegionUtils {
@@ -56,8 +59,7 @@ public class LegionUtils {
 	  PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
 	if (pm == null) return;
 	pm.wakeUp(SystemClock.uptimeMillis(), "com.android.systemui:CAMERA_GESTURE_PREVENT_LOCK");
-	}
-
+    }
     public static boolean isAvailableApp(String packageName, Context context) {
        Context mContext = context;
        final PackageManager pm = mContext.getPackageManager();
