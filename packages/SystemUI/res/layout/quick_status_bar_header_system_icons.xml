@@ -71,15 +71,13 @@
 	 <com.android.systemui.statusbar.info.DataUsageView
              android:id="@+id/data_sim_usage"
              android:layout_width="wrap_content"
-             android:layout_height="@dimen/status_bar_icon_size"
-             android:maxLines="1"
-             android:layout_gravity="center_vertical"
+             android:layout_height="match_parent"
              android:gravity="center_vertical|end"
-             android:singleLine="true"
-             android:textAppearance="@style/TextAppearance.StatusBar.Clock"
              android:paddingStart="1dp"
              android:paddingEnd="1dp"
-             systemui:showDark="false" />
+             android:singleLine="true"
+             android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+             android:text="" />
 
         <LinearLayout
                 android:id="@+id/system_info_layout"
