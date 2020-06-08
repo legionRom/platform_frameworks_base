@@ -47,7 +47,6 @@ import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
-import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
@@ -88,8 +87,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
-    private final Provider<ScreenshotTile> mScreenshotTileProvider;
-    private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
+    private final Provider<ScreenshotTile> mScreenshotTileProvider
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
 
@@ -120,7 +118,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<GamingModeTile> gamingModeTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
-            Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider) {
         mWifiTileProvider = wifiTileProvider;
@@ -148,7 +145,6 @@ public class QSFactoryImpl implements QSFactory {
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
-        mScreenRecordTileProvider = screenRecordTileProvider;
         mCPUInfoTileProvider = cpuInfoTileProvider;
     }
 
@@ -215,8 +211,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mRebootTileProvider.get();
             case "screenshot":
                 return mScreenshotTileProvider.get();
-            case "screenrecord":
-                return mScreenRecordTileProvider.get();
             case "cpuinfo":
                 return mCPUInfoTileProvider.get();
         }
