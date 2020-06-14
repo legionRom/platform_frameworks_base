@@ -1158,6 +1158,7 @@
 
     <!-- Size of the RAT type for CellularTile -->
     <dimen name="celltile_rat_type_size">10sp</dimen>
+
     <dimen name="lockscreen_shortcuts_preview_paddingVertical">30dp</dimen>
     <dimen name="lockscreen_shortcuts_preview_paddingHorizontal">50dp</dimen>
     <dimen name="keyguard_affordance_icon_preview_padding">15dp</dimen>
@@ -1171,4 +1172,12 @@
 
     <dimen name="qs_tiles_extra_margin_top">2dp</dimen>
 
+    <!-- FOD recognizing animation -->
+    <dimen name="fod_animation_size">280dp</dimen>
+    <dimen name="fod_animation_offset">0dp</dimen>
+
+    <!--  Allow CornerHandleView and PathSpecCornerPathRenderer to decouple from corner-radius -->
+    <dimen name="config_rounded_mask_size">@*android:dimen/rounded_corner_radius</dimen>
+    <dimen name="config_rounded_mask_size_top">@*android:dimen/rounded_corner_radius_top</dimen>
+    <dimen name="config_rounded_mask_size_bottom">@*android:dimen/rounded_corner_radius_top</dimen>
 </resources>
