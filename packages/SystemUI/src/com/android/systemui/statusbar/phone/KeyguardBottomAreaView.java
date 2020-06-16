@@ -277,7 +277,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         mActivityIntentHelper = new ActivityIntentHelper(getContext());
         updateLeftAffordance();
 
-        updateIndicationAreaPadding();
         updateCameraIconColor();
         updatePhoneIconColor();
         updateIndicationTextColor();
