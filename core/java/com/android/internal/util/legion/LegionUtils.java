@@ -30,8 +30,6 @@ import android.os.SystemProperties;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.format.Time;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
 import android.view.InputDevice;

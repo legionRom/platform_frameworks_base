@@ -53,10 +53,9 @@ public class ThemesUtils {
     };
 
     public static final String[] DARK_GREY = {
-            "com.android.theme.system.darkgray",
-            "com.android.theme.systemui.darkgray",
+            "com.android.theme.darkgrey.system",
+            "com.android.theme.darkgrey.systemui",
     };
-
     public static final String[] MATERIAL_OCEAN = {
             "com.android.theme.materialocean.system",
             "com.android.theme.materialocean.systemui",
@@ -76,6 +75,16 @@ public class ThemesUtils {
         "com.android.systemui.qsheader.transparent", // 4
     };
 
+     // Switch themes
+    private static final String[] SWITCH_THEMES = {
+        "com.android.system.switch.stock", // 0
+        "com.android.system.switch.oneplus", // 1
+	"com.android.system.switch.narrow", // 2
+        "com.android.system.switch.contained", // 3
+        "com.android.system.switch.telegram", // 4
+    };
+
+
     private static final String[] QS_TILE_THEMES = {
         "com.android.systemui.qstile.default", // 0
         "com.android.systemui.qstile.circletrim", // 1
@@ -92,13 +101,6 @@ public class ThemesUtils {
         "com.android.systemui.qstile.circleoutline", //12
         "com.android.systemui.qstile.neonlike", // 13
         "com.android.systemui.qstile.triangles", // 14
-
-     // Switch themes
-    private static final String[] SWITCH_THEMES = {
-        "com.android.system.switch.stock", // 0
-        "com.android.system.switch.oneplus", // 1
-	"com.android.system.switch.narrow", // 2
-        "com.android.system.switch.contained", // 3
     };
 
     // Switches qs header style to user selected.
@@ -128,6 +130,7 @@ public class ThemesUtils {
             }
         }
     }
+
     public static void updateSwitchStyle(IOverlayManager om, int userId, int switchStyle) {
         if (switchStyle == 0) {
             stockSwitchStyle(om, userId);
@@ -152,8 +155,6 @@ public class ThemesUtils {
             }
         }
     }
-
-}
 
     // Switches qs tile style to user selected.
     public static void updateTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
@@ -183,4 +184,5 @@ public class ThemesUtils {
         }
     }
 }
+
 
