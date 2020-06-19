@@ -875,28 +875,40 @@ public class KeyguardStatusView extends GridLayout implements
                 mTextClock.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
-            case 6: // custom text clock
-                mTextClock.setVisibility(View.VISIBLE);
-                mSmallClockView.setVisibility(View.GONE);
-                params.addRule(RelativeLayout.BELOW, R.id.custom_text_clock_view);
-                break;
             case 6: // default (accent hr)
-                mClockView.setVisibility(View.VISIBLE);
+                mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 7: // default (accent min)
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 8: // sammy
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 9: // sammy (bold)
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 10: // sammy (accent)
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 11: // sammy (accent alt)
                 mSmallClockView.setVisibility(View.VISIBLE);
+                mTextClock.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                break;
+	    case 12: // custom text clock
+                mTextClock.setVisibility(View.VISIBLE);
+                mSmallClockView.setVisibility(View.GONE);
+                params.addRule(RelativeLayout.BELOW, R.id.custom_text_clock_view);
                 break;
         }
     }
