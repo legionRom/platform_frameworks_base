@@ -925,24 +925,28 @@ public class KeyguardStatusView extends GridLayout implements
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
 		mCustomClockView.setVisibility(View.GONE);
+		mCustomNumClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
             case 9: // sammy (bold)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
 		mCustomClockView.setVisibility(View.GONE);
+		mCustomNumClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 10: // sammy (accent)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
 		mCustomClockView.setVisibility(View.GONE);
+		mCustomNumClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 11: // sammy (accent alt)
                 mSmallClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
 		mCustomClockView.setVisibility(View.GONE);
+		mCustomNumClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 break;
 	    case 12: // custom text clock
@@ -956,6 +960,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.VISIBLE);
                 mTextClock.setVisibility(View.GONE);
                 mSmallClockView.setVisibility(View.GONE);
+		mCustomNumClockView.setVisibility(View.GONE);
                 params.addRule(RelativeLayout.BELOW, R.id.custom_clock_view);
                 break;
             case 14: // custom num analog clock
