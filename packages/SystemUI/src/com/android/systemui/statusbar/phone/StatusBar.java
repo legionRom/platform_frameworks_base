@@ -3592,25 +3592,20 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         // Resource IDs for framework properties
-        int resourceIdRadius = (int) mContext.getResources().getDimension(R.dimen.rounded_corner_radius);
-        int resourceIdPadding = (int) mContext.getResources().getDimension(R.dimen.rounded_corner_content_padding);
-        int resourceIdSBPadding = (int) mContext.getResources().getDimension(R.dimen.status_bar_extra_padding);
+        int resourceIdRadius = res.getIdentifier("com.android.systemui:dimen/rounded_corner_radius", null, null);
+        int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null, null);
 
         // Values on framework resources
-        int cornerRadiusRes = (int) (resourceIdRadius / density);
-        int contentPaddingRes = (int) (resourceIdPadding / density);
-        int sbPaddingRes = (int) (resourceIdSBPadding / density);
+        int cornerRadiusRes = (int) (res.getDimension(resourceIdRadius) / density);
+        int contentPaddingRes = (int) (res.getDimension(resourceIdPadding) / density);
 
         // Values in Settings DBs
         int cornerRadius = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.SYSUI_ROUNDED_SIZE, cornerRadiusRes, UserHandle.USER_CURRENT);
         int contentPadding = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, contentPaddingRes, UserHandle.USER_CURRENT);
-        int sbPadding = Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                Settings.Secure.SYSUI_STATUS_BAR_PADDING, contentPaddingRes, UserHandle.USER_CURRENT);
 
-        return (cornerRadiusRes == cornerRadius) && (contentPaddingRes == contentPadding) &&
-                (sbPaddingRes == sbPadding);
+        return (cornerRadiusRes == cornerRadius) && (contentPaddingRes == contentPadding);
     }
 
     /**
@@ -3636,16 +3631,21 @@ public class StatusBar extends SystemUI implements DemoMode,
                 UserHandle.USER_CURRENT) == 1;
         if (mSysuiRoundedFwvals && !isCurrentRoundedSameAsFw()) {
             float density = Resources.getSystem().getDisplayMetrics().density;
+            Resources res = null;
+            try {
+                res = mContext.getPackageManager().getResourcesForApplication("com.android.systemui");
+            } catch (NameNotFoundException e) {
+                e.printStackTrace();
+            }
 
-            int resourceIdRadius = (int) mContext.getResources().getDimension(R.dimen.rounded_corner_radius);
-            Settings.Secure.putIntForUser(mContext.getContentResolver(),
-                Settings.Secure.SYSUI_ROUNDED_SIZE, (int) (resourceIdRadius / density), UserHandle.USER_CURRENT);
-            int resourceIdPadding = (int) mContext.getResources().getDimension(R.dimen.rounded_corner_content_padding);
-            Settings.Secure.putIntForUser(mContext.getContentResolver(),
-                Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, (int) (resourceIdPadding / density), UserHandle.USER_CURRENT);
-            int resourceIdSBPadding = (int) mContext.getResources().getDimension(R.dimen.status_bar_extra_padding);
-            Settings.Secure.putIntForUser(mContext.getContentResolver(),
-                Settings.Secure.SYSUI_STATUS_BAR_PADDING, (int) (resourceIdSBPadding / density), UserHandle.USER_CURRENT);
+            if (res != null) {
+                int resourceIdRadius = res.getIdentifier("com.android.systemui:dimen/rounded_corner_radius", null, null);
+                Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.SYSUI_ROUNDED_SIZE, (int) (res.getDimension(resourceIdRadius) / density), UserHandle.USER_CURRENT);
+                int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null, null);
+                Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, (int) (res.getDimension(resourceIdPadding) / density), UserHandle.USER_CURRENT);
+            }
         }
     }
 
