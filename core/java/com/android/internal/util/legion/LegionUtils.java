@@ -27,6 +27,8 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.format.Time;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo
