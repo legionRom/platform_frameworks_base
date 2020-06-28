@@ -5526,11 +5526,6 @@ public final class Settings {
 
         private static final Validator STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
-        /** FOD pressed state
-         * @hide
-         */
-        public static final String FOD_PRESSED_STATE = "fod_pressed_state";
-
         /**
          * @hide
          */
@@ -5584,24 +5579,6 @@ public final class Settings {
          * @hide
          */
         public static final String NETWORK_TRAFFIC_LAYOUT = "network_traffic_layout";
-
-        /**
-         * FOD icon picker
-         * @hide
-         */
-        public static final String FOD_ICON = "fod_icon";
-
-        /**
-         * FOD recognizing animation
-         * @hide
-         */
-        public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
-
-        /**
-         * FOD recognizing animation picker
-         * @hide
-         */
-        public static final String FOD_ANIM = "fod_anim";
 
 	/**
         * Powermenu Background
