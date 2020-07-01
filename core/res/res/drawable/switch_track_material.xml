@@ -11,23 +11,19 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true">
-        <shape android:visible="true" android:shape="rectangle" android:useLevel="false">
-        <gradient 
-            android:startColor="@color/gradient_start"
-            android:endColor="@color/gradient_end"
-            android:angle="45"/>
-            <corners android:radius="25dp" />
-            <size android:height="21dp" android:width="25dp" />
-        </shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center_vertical|fill_horizontal"
+          android:start="4dp"
+          android:end="4dp">
+        <shape android:shape="rectangle" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="13dp" android:width="5dp" />
+    <corners android:radius="30dp" />
+	<gravity android:gravity="center_vertical" />
+    <solid android:color="@android:color/transparent" />
+    <stroke
+        android:width="2dip"
+        android:color="@color/switch_track_material"/>
+</shape>
     </item>
-    <item android:state_checked="false">
-        <shape android:visible="true" android:shape="rectangle" android:useLevel="false"
-            android:tint="?attr/colorProgressBackgroundNormal">
-            <solid android:color="@color/white_disabled_material" />
-            <corners android:radius="25dp" />
-            <size android:height="21dp" android:width="25dp" />
-        </shape>
-    </item>
-</selector>
+</layer-list>
