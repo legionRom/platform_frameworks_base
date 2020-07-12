@@ -5821,11 +5821,6 @@ public final class Settings {
         public static final String BATTERY_BAR_USE_GRADIENT_COLOR = "battery_bar_use_gradient_color";
 
         /**
-         * @hide
-         */
-        public static final String QS_TILE_ICON_PRIMARY = "qs_tile_icon_primary";
-
-        /**
          * FOD icon picker
          * @hide
          */
