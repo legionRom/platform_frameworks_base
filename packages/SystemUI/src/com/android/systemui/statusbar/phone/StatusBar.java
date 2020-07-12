@@ -4271,6 +4271,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.BACK_GESTURE_HAPTIC),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_ICON_PRIMARY),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILE_STYLE),
                     false, this, UserHandle.USER_ALL);
 	    resolver.registerContentObserver(Settings.System.getUriFor(
@@ -4298,7 +4301,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_ACCENT))) {
                 mQSPanel.getHost().reloadAllTiles();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_NEW_TINT)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.QS_LABEL_USE_NEW_TINT))) {
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_LABEL_USE_NEW_TINT)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_TILE_ICON_PRIMARY))) {
                 mQSPanel.getHost().reloadAllTiles();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_HEADER_STYLE))) {
                 stockQSHeaderStyle();
