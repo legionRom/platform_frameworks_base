@@ -88,8 +88,6 @@
     <color name="recents_dismiss_all_background_color">@color/volume_background_tint</color>
     <color name="recents_dismiss_all_icon_color">@android:color/white</color>
 
-    <color name="qs_drag_handle_color">#66555555</color>
-
     <color name="volume_background_tint">#141414</color>
 
     <color name="divider_stroke_color">#434343</color>
